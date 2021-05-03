@@ -91,7 +91,7 @@ class RequestHandler extends events_1.EventEmitter {
     _applyRatelimitHeaders(bkt, headers, offsetDate, reactions = false) {
         if (headers["x-ratelimit-global"]) {
             bkt.ratelimiter.global = true;
-            bkt.ratelimiter.globalReset = parseInt(headers["retry_after"]);
+            bkt.ratelimiter.globalReset = Number(headers["retry_after"]);
         }
         if (headers["x-ratelimit-reset"]) {
             const reset = (headers["x-ratelimit-reset"] * 1000) - offsetDate;

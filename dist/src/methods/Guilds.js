@@ -61,7 +61,7 @@ class GuildMethods {
             if (data.reason)
                 Object.assign(newData, { queryReason: data.reason });
             if (data.delete_message_days)
-                Object.assign(newData, { "delete-message-days": data.delete_message_days });
+                Object.assign(newData, { "delete_message_days": data.delete_message_days });
         }
         return this.requestHandler.request(Endpoints_1.default.GUILD_BAN(guildId, memberId), "put", "json", newData);
     }

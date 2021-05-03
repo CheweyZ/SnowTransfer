@@ -41,7 +41,7 @@ class ChannelMethods {
     }
     async createMessage(channelId, data, options = { disableEveryone: this.disableEveryone }) {
         if (typeof data !== "string" && !data.content && !data.embed && !data.file) {
-            throw new Error("Missing content or embed");
+            throw new Error("Missing content or embed or file");
         }
         if (typeof data === "string") {
             data = { content: data };
@@ -103,6 +103,8 @@ class ChannelMethods {
         return this.requestHandler.request(Endpoints_1.default.CHANNEL_MESSAGE_REACTION_USER(channelId, messageId, emoji, "@me"), "delete", "json");
     }
     async deleteReaction(channelId, messageId, emoji, userId) {
+        if (!userId)
+            return this.requestHandler.request(Endpoints_1.default.CHANNEL_MESSAGE_REACTION(channelId, messageId, emoji), "delete", "json");
         return this.requestHandler.request(Endpoints_1.default.CHANNEL_MESSAGE_REACTION_USER(channelId, messageId, emoji, userId), "delete", "json");
     }
     async getReactions(channelId, messageId, emoji) {

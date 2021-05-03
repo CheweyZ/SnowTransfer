@@ -18,7 +18,7 @@ declare class ChannelMethods {
     bulkDeleteMessages(channelId: string, messages: Array<string>): Promise<void>;
     createReaction(channelId: string, messageId: string, emoji: string): Promise<void>;
     deleteReactionSelf(channelId: string, messageId: string, emoji: string): Promise<void>;
-    deleteReaction(channelId: string, messageId: string, emoji: string, userId: string): Promise<void>;
+    deleteReaction(channelId: string, messageId: string, emoji: string, userId?: string): Promise<void>;
     getReactions(channelId: string, messageId: string, emoji: string): Promise<Array<import("@amanda/discordtypings").UserData>>;
     deleteAllReactions(channelId: string, messageId: string): Promise<void>;
     editChannelPermission(channelId: string, permissionId: string, data: Partial<import("@amanda/discordtypings").PermissionOverwriteData>): Promise<void>;
@@ -63,15 +63,34 @@ interface GetMessageOptions {
 interface CreateMessageData {
     embed?: import("@amanda/discordtypings").EmbedData;
     content?: string | null;
+    nonce?: string | number;
     tts?: boolean | null;
     file?: {
         name?: string;
         file: Buffer;
     };
+    allowed_mentions?: {
+        parse?: Array<"roles" | "users" | "everyone">;
+        roles?: Array<string>;
+        users?: Array<string>;
+        replied_user?: boolean;
+    };
+    message_reference?: {
+        message_id?: string;
+        channel_id?: string;
+        guild_id?: string;
+        fail_if_not_exists?: boolean;
+    };
 }
 interface EditMessageData {
     content?: string | null;
     embed?: import("@amanda/discordtypings").EmbedData;
+    allowed_mentions?: {
+        parse?: Array<"roles" | "users" | "everyone">;
+        roles?: Array<string>;
+        users?: Array<string>;
+        replied_user?: boolean;
+    };
 }
 interface CreateInviteData {
     max_age?: number;
