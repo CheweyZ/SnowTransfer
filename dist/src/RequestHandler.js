@@ -8,6 +8,40 @@ const centra_1 = __importDefault(require("centra"));
 const Endpoints_1 = __importDefault(require("./Endpoints"));
 const form_data_1 = __importDefault(require("form-data"));
 const package_json_1 = require("../package.json");
+const Constants_1 = __importDefault(require("./Constants"));
+class DiscordAPIError extends Error {
+    constructor(path, error, method, status) {
+        super();
+        const flattened = DiscordAPIError.flattenErrors(error.errors || error).join("\n");
+        this.name = "DiscordAPIError";
+        this.message = error.message && flattened ? `${error.message}\n${flattened}` : error.message || flattened;
+        this.method = method;
+        this.path = path;
+        this.code = error.code;
+        this.httpStatus = status;
+    }
+    static flattenErrors(obj, key = "") {
+        let messages = [];
+        for (const [k, v] of Object.entries(obj)) {
+            if (k === "message")
+                continue;
+            const newKey = key ? (isNaN(Number(k)) ? `${key}.${k}` : `${key}[${k}]`) : k;
+            if (v._errors) {
+                messages.push(`${newKey}: ${v._errors.map(e => e.message).join(" ")}`);
+            }
+            else if (v.code || v.message) {
+                messages.push(`${v.code ? `${v.code}: ` : ""}${v.message}`.trim());
+            }
+            else if (typeof v === "string") {
+                messages.push(v);
+            }
+            else {
+                messages = messages.concat(this.flattenErrors(v, newKey));
+            }
+        }
+        return messages;
+    }
+}
 class RequestHandler extends events_1.EventEmitter {
     constructor(ratelimiter, options) {
         super();
@@ -46,10 +80,16 @@ class RequestHandler extends events_1.EventEmitter {
                     else {
                         throw new Error("Forbidden dataType. Use json or multipart");
                     }
-                    this.latency = Date.now() - latency;
-                    const offsetDate = this._getOffsetDateFromHeader(request.headers["date"]);
-                    const match = endpoint.match(/\/reactions\//);
-                    this._applyRatelimitHeaders(bkt, request.headers, offsetDate, !!match);
+                    if (request.statusCode && !Constants_1.default.OK_STATUS_CODES.includes(request.statusCode) && ![429, 502].includes(request.statusCode))
+                        throw new DiscordAPIError(endpoint, request.headers["content-type"] === "application/json" ? await request.json() : request.body, method, request.statusCode);
+                    if (request.headers["date"]) {
+                        this.latency = Date.now() - latency;
+                        const offsetDate = this._getOffsetDateFromHeader(request.headers["date"]);
+                        const match = endpoint.match(/\/reactions\//);
+                        this._applyRatelimitHeaders(bkt, request.headers, offsetDate, !!match);
+                    }
+                    if (request.statusCode && [429, 502].includes(request.statusCode))
+                        return this.request(endpoint, method, dataType, data);
                     this.emit("done", reqID, request);
                     if (request.body) {
                         let b;
@@ -67,17 +107,6 @@ class RequestHandler extends events_1.EventEmitter {
                 }
                 catch (error) {
                     this.emit("requestError", reqID, error);
-                    if (error.response) {
-                        const offsetDate = this._getOffsetDateFromHeader(error.response.headers["date"]);
-                        if (error.response.status === 429) {
-                            const match = endpoint.match(/\/reactions\//);
-                            this._applyRatelimitHeaders(bkt, error.response.headers, offsetDate, !!match);
-                            return this.request(endpoint, method, dataType, data);
-                        }
-                        if (error.response.status === 502) {
-                            return this.request(endpoint, method, dataType, data);
-                        }
-                    }
                     return rej(error);
                 }
             }, endpoint, method);
@@ -145,4 +174,5 @@ class RequestHandler extends events_1.EventEmitter {
         return centra_1.default(this.apiURL, method).path(endpoint).header(newHeaders).body(form.getBuffer()).send();
     }
 }
+RequestHandler.DiscordAPIErrror = DiscordAPIError;
 module.exports = RequestHandler;

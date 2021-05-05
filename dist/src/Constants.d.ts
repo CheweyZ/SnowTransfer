@@ -3,5 +3,6 @@ declare const _default: {
     GET_CHANNEL_MESSAGES_MAX_RESULTS: number;
     BULK_DELETE_MESSAGES_MIN: number;
     BULK_DELETE_MESSAGES_MAX: number;
+    OK_STATUS_CODES: number[];
 };
 export = _default;

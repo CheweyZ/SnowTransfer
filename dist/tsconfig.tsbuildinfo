@@ -150,8 +150,8 @@
         "signature": "0c9ea8c2028047f39a3f66752682604f543c08be8806258c3d95c93e75a43255"
       },
       "../src/constants.ts": {
-        "version": "0dfc092dd811f7833f75ad7d91c68972c49b443c4bbe37acc658214fb8af2ed3",
-        "signature": "ae1e85845ebedad133838d14dc0fbbb20c5212c64feb2f352089bed90bb1b679"
+        "version": "5916b1dd20123acdf9e0ea1acb4857de2f69bce8512364309030f9a8bb8b780a",
+        "signature": "cdaabe4aee5e177c8c767e73fe680b8035a996e1c9c6a45e5bbca9b9366eb330"
       },
       "../src/endpoints.ts": {
         "version": "e684e3dbef64e98f1620650f4a1ff74061a937997894093bdf5c0294ca7e0552",
@@ -378,8 +378,8 @@
         "signature": "3da1e0602ad4c4ced3fe1887b4ec1f94bd5f0fc6ae01524262b7deb8dc35eae9"
       },
       "../src/requesthandler.ts": {
-        "version": "94c3947a25f3dda1e40d297243218d9bc914a8d032b8cf432c2845049d3c890b",
-        "signature": "5ed7740ccf087df8af98e248ded70144a60c92d696597ec802209404e85a5688"
+        "version": "c20eb49e5e6da109be2983c79d744269f67a67cd228ca1b7a8d33f9d446831d7",
+        "signature": "04514120e65e0ae6360a9274e00b4032860253988135fb19b8c9ce892afb5fe3"
       },
       "../node_modules/@amanda/discordtypings/index.d.ts": {
         "version": "278c6d9c0249fceba4f3e127952f64eaad4e942a18ce8734a131a16039d4d958",
@@ -741,6 +741,7 @@
         "../src/endpoints.ts",
         "../node_modules/form-data/index.d.ts",
         "../package.json",
+        "../src/constants.ts",
         "../src/ratelimiter.ts",
         "../src/ratelimitbuckets/localbucket.ts"
       ],
@@ -827,6 +828,11 @@
         "../src/methods/auditlog.ts",
         "../src/ratelimiter.ts"
       ],
+      "../src/requesthandler.ts": [
+        "../src/ratelimiter.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/centra/index.d.ts"
+      ],
       "../src/methods/auditlog.ts": [
         "../src/requesthandler.ts",
         "../node_modules/@amanda/discordtypings/index.d.ts"
@@ -861,10 +867,6 @@
         "../src/methods/users.ts",
         "../node_modules/@amanda/discordtypings/index.d.ts",
         "../src/cache/dewcache.ts"
-      ],
-      "../src/requesthandler.ts": [
-        "../src/ratelimiter.ts",
-        "../node_modules/@types/node/events.d.ts"
       ],
       "../src/ratelimitbuckets/localbucket.ts": [
         "../src/ratelimiter.ts"
