@@ -158,12 +158,12 @@
         "signature": "5df843b0178ef95ce5660fec2af883131098bc49b20d6564e8fc2e8643639c71"
       },
       "../src/ratelimitbuckets/localbucket.ts": {
-        "version": "007607a5aec1ace19b3d085641d2ed64235d893a12176e42f589925ba488986d",
-        "signature": "51d0057e0f206191acfa12f8306c4f2070279e9d38d0e65c1f4315b47156afd6"
+        "version": "7bfb1f5cbd68293db5e7e456702b3126ed0be9a8a04afcbf8e1b9dbdfddd0807",
+        "signature": "bf71c6963227c35294d4bbd889bca0d3251bd7ceca65ef5ead4ce83f35df60fb"
       },
       "../src/ratelimiter.ts": {
-        "version": "0e055396dcc0c8d148858262bc878e2394d9eccbd4da5f0c090395b1209697ad",
-        "signature": "459af9f34c2c17a99283fa02c5d10cac1b5ac60ebcf93c382eb02f7d0ac2a164"
+        "version": "3e27033f05ae7c4b824ac86305c41183533c754f3b2844f6acd64800cd371692",
+        "signature": "62ab3f5fbb657af42e868b4ba6bf3e60166fc955a7f3991d42b1ed01ca1a1398"
       },
       "../node_modules/@types/node/assert/strict.d.ts": {
         "version": "c7bdc99177a2a94d25fb13722adaaf5b3291bf70b4d1b27584ba189dd3889ba3",
@@ -378,8 +378,8 @@
         "signature": "3da1e0602ad4c4ced3fe1887b4ec1f94bd5f0fc6ae01524262b7deb8dc35eae9"
       },
       "../src/requesthandler.ts": {
-        "version": "c20eb49e5e6da109be2983c79d744269f67a67cd228ca1b7a8d33f9d446831d7",
-        "signature": "04514120e65e0ae6360a9274e00b4032860253988135fb19b8c9ce892afb5fe3"
+        "version": "64aaa77558fd1d3b0e30b218138e2e3e604c92a9106f1311a29f6ffb7348c4da",
+        "signature": "256208223648d1d52032b323f63c555a2a05394404e8306adc64d450a22b6e2e"
       },
       "../node_modules/@amanda/discordtypings/index.d.ts": {
         "version": "278c6d9c0249fceba4f3e127952f64eaad4e942a18ce8734a131a16039d4d958",

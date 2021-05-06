@@ -19,6 +19,13 @@ interface HandlerEvents {
     }];
     done: [string, c.Response];
     requestError: [string, Error];
+    rateLimit: [{
+        timeout: number;
+        limit: number;
+        method: HTTPMethod;
+        path: string;
+        route: string;
+    }];
 }
 interface RequestHandler {
     addListener<E extends keyof HandlerEvents>(event: E, listener: (...args: HandlerEvents[E]) => any): this;
@@ -55,7 +62,7 @@ declare class RequestHandler extends EventEmitter {
         token: string;
         baseHost: string;
     });
-    request(endpoint: string, method: HTTPMethod, dataType?: "json" | "multipart", data?: any | undefined): Promise<any>;
+    request(endpoint: string, method: HTTPMethod, dataType?: "json" | "multipart", data?: any | undefined, amount?: number): Promise<any>;
     private _getOffsetDateFromHeader;
     private _applyRatelimitHeaders;
     private _request;

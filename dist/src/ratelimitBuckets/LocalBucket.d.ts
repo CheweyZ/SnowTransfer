@@ -10,7 +10,7 @@ declare class LocalBucket {
     resetTimeout: NodeJS.Timeout | null;
     ratelimiter: import("../Ratelimiter");
     constructor(ratelimiter: import("../Ratelimiter"));
-    queue(fn: (...args: Array<any>) => any): Promise<any>;
+    queue(fn: (bucket: LocalBucket) => any): Promise<any>;
     protected checkQueue(): void;
     protected resetRemaining(): void;
     protected dropQueue(): void;

@@ -6,7 +6,7 @@ declare class Ratelimiter {
     global: boolean;
     globalReset: number;
     constructor();
-    protected routify(url: string, method: string): string;
-    queue(fn: (...args: Array<any>) => any, url: string, method: string): void;
+    routify(url: string, method: string): string;
+    queue(fn: (bucket: import("./ratelimitBuckets/LocalBucket")) => any, url: string, method: string): void;
 }
 export = Ratelimiter;

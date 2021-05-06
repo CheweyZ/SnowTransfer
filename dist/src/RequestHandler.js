@@ -61,7 +61,7 @@ class RequestHandler extends events_1.EventEmitter {
         this.reset = {};
         this.limit = {};
     }
-    request(endpoint, method, dataType = "json", data = {}) {
+    request(endpoint, method, dataType = "json", data = {}, amount = 0) {
         if (typeof data === "number")
             data = String(data);
         return new Promise(async (res, rej) => {
@@ -72,10 +72,10 @@ class RequestHandler extends events_1.EventEmitter {
                     this.emit("request", reqID, { endpoint, method, dataType, data });
                     let request;
                     if (dataType == "json") {
-                        request = await this._request(endpoint, method, data, (method === "get" || endpoint.includes("/bans") || endpoint.includes("/prune")));
+                        request = await this._request(endpoint, method, data, (method === "get" || endpoint.includes("/bans") || endpoint.includes("/prune")), amount);
                     }
                     else if (dataType == "multipart") {
-                        request = await this._multiPartRequest(endpoint, method, data);
+                        request = await this._multiPartRequest(endpoint, method, data, amount);
                     }
                     else {
                         throw new Error("Forbidden dataType. Use json or multipart");
@@ -88,8 +88,11 @@ class RequestHandler extends events_1.EventEmitter {
                         const match = endpoint.match(/\/reactions\//);
                         this._applyRatelimitHeaders(bkt, request.headers, offsetDate, !!match);
                     }
-                    if (request.statusCode && [429, 502].includes(request.statusCode))
-                        return this.request(endpoint, method, dataType, data);
+                    if (request.statusCode && [429, 502].includes(request.statusCode)) {
+                        if (request.statusCode === 429)
+                            this.emit("rateLimit", { timeout: bkt.reset, limit: bkt.limit, method: method, path: endpoint, route: this.ratelimiter.routify(endpoint, method) });
+                        return this.request(endpoint, method, dataType, data, amount++);
+                    }
                     this.emit("done", reqID, request);
                     if (request.body) {
                         let b;
@@ -141,7 +144,9 @@ class RequestHandler extends events_1.EventEmitter {
             bkt.limit = parseInt(headers["x-ratelimit-limit"]);
         }
     }
-    async _request(endpoint, method, data, useParams = false) {
+    async _request(endpoint, method, data, useParams = false, amount = 0) {
+        if (amount >= 3)
+            throw new Error("Max amount of rety attempts reached");
         const headers = {};
         if (typeof data != "string" && data.reason) {
             headers["X-Audit-Log-Reason"] = encodeURIComponent(data.reason);
@@ -163,7 +168,9 @@ class RequestHandler extends events_1.EventEmitter {
             return req.send();
         }
     }
-    async _multiPartRequest(endpoint, method, data) {
+    async _multiPartRequest(endpoint, method, data, amount = 0) {
+        if (amount >= 3)
+            throw new Error("Max amount of rety attempts reached");
         const form = new form_data_1.default();
         if (data.file && data.file.file) {
             form.append("file", data.file.file, { filename: data.file.name });
