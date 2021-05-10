@@ -26,14 +26,16 @@ declare class ChannelMethods {
      */
     getChannel(channelId: string): Promise<import("@amanda/discordtypings").ChannelData>;
     /**
-     * Update a channel
+     * Update a channel or thread
      * @param channelId Id of the channel
      * @param data Data to send
      * @returns [discord channel](https://discord.com/developers/docs/resources/channel#channel-object) object
      *
-     * | Permissions needed | Condition |
-     * |--------------------|-----------|
-     * | MANAGE_CHANNELS    | always    |
+     * | Permissions needed | Condition                                                                                                       |
+     * |--------------------|-----------------------------------------------------------------------------------------------------------------|
+     * | MANAGE_CHANNELS    | always                                                                                                          |
+     * | READ_MESSAGES      | When editing a Thread to set archived to false                                                                  |
+     * | MANAGE_THREADS     | When editing a Thread to change the name, archived, auto_archive_duration, rate_limit_per_user or locked fields |
      *
      * @example
      * // This example updates a channel with the passed id to use "New Name" as it's name and "Look at this cool topic" as the topic
@@ -46,7 +48,7 @@ declare class ChannelMethods {
      */
     updateChannel(channelId: string, data: EditChannelData): Promise<import("@amanda/discordtypings").ChannelData>;
     /**
-     * Delete a channel via Id
+     * Delete a channel or thread via Id
      *
      * This either **deletes** a Guild Channel or **closes** a Direct Message Channel
      *
@@ -59,6 +61,7 @@ declare class ChannelMethods {
      * | Permissions needed | Condition                        |
      * |--------------------|----------------------------------|
      * | MANAGE_CHANNELS    | When deleting a Guild Channel    |
+     * | MANAGE_THREADS     | When channelId is a Thread's ID  |
      */
     deleteChannel(channelId: string): Promise<import("@amanda/discordtypings").ChannelData>;
     /**
@@ -376,10 +379,59 @@ declare class ChannelMethods {
      * @returns Resolves the Promise on successful execution
      */
     removeDmChannelRecipient(channelId: string, userId: string): Promise<void>;
+    /**
+     * Gets all members within a thread
+     * @param channelId Id of the Thread
+     * @returns Array of [thread member objects](https://discord.com/developers/docs/resources/channel#thread-member-object)
+     *
+     * | Permissions needed                | Condition |
+     * |-----------------------------------|-----------|
+     * | GUILD_MEMBERS gateway intent      | always    |
+     */
     getChannelThreadMembers(channelId: string): Promise<Array<import("@amanda/discordtypings").ThreadMemberData>>;
+    /**
+     * Gets all threads that are active within a GuildChannel (inclusive of public and private threads)
+     * @param channelId Id of the Channel
+     * @returns Array of [channel objects with message_count, member_count, thread_metadata and optional member fields](https://discord.com/developers/docs/resources/channel#channel-object)
+     *
+     * | Permissions needed                | Condition                                  |
+     * |-----------------------------------|--------------------------------------------|
+     * | CurrentUser added to Thread       | if CurrentUser doesn't have MANAGE_THREADS |
+     * | MANAGE_THREADS                    | if CurrentUser isn't added to Thread       |
+     */
     getChannelActiveThreads(channelId: string): Promise<Array<import("@amanda/discordtypings").ThreadChannelData>>;
+    /**
+     * Gets all threads that are private and archived within a GuildChannel
+     * @param channelId Id of the Channel
+     * @returns Array of [channel objects with message_count, member_count, thread_metadata and optional member fields](https://discord.com/developers/docs/resources/channel#channel-object)
+     *
+     * | Permissions needed                | Condition                                  |
+     * |-----------------------------------|--------------------------------------------|
+     * | CurrentUser added to Thread       | if CurrentUser doesn't have MANAGE_THREADS |
+     * | MANAGE_THREADS                    | if CurrentUser isn't added to Thread       |
+     */
     getChannelArchivedPrivateThreads(channelId: string): Promise<Array<import("@amanda/discordtypings").ThreadChannelData>>;
+    /**
+     * Gets all threads that are private and archived within a GuildChannel that the CurrentUser is apart of
+     * @param channelId Id of the Channel
+     * @returns Array of [channel objects with message_count, member_count, thread_metadata and optional member fields](https://discord.com/developers/docs/resources/channel#channel-object)
+     *
+     * | Permissions needed                | Condition                                  |
+     * |-----------------------------------|--------------------------------------------|
+     * | CurrentUser added to Thread       | if CurrentUser doesn't have MANAGE_THREADS |
+     * | MANAGE_THREADS                    | if CurrentUser isn't added to Thread       |
+     */
     getChannelArchivedPrivateThreadsUser(channelId: string): Promise<Array<import("@amanda/discordtypings").ThreadChannelData>>;
+    /**
+     * Gets all threads that are public and archived within a GuildChannel
+     * @param channelId Id of the Channel
+     * @returns Array of [channel objects with message_count, member_count, thread_metadata and optional member fields](https://discord.com/developers/docs/resources/channel#channel-object)
+     *
+     * | Permissions needed                | Condition                                  |
+     * |-----------------------------------|--------------------------------------------|
+     * | CurrentUser added to Thread       | if CurrentUser doesn't have MANAGE_THREADS |
+     * | MANAGE_THREADS                    | if CurrentUser isn't added to Thread       |
+     */
     getChannelArchivedPublicThreads(channelId: string): Promise<Array<import("@amanda/discordtypings").ThreadChannelData>>;
 }
 interface EditChannelData {

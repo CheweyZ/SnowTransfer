@@ -386,8 +386,8 @@
         "signature": "278c6d9c0249fceba4f3e127952f64eaad4e942a18ce8734a131a16039d4d958"
       },
       "../src/methods/channels.ts": {
-        "version": "52023120be3e4e54f0f9da5a728fc264e5226d785377a40a7b6c0db4c8361d42",
-        "signature": "09ce283d04fa66939ccef5240961cebececc49edea66129c2fdd6fb072dd72a6"
+        "version": "27b61c5b6a846212774e829f0768021c1a8a6c767a54ae0e8d5daae04f66c9b9",
+        "signature": "ab81ea956cc641395c4e463e15907ac258436441f8974e14c424f815bf62bb23"
       },
       "../src/cache/dewcache.ts": {
         "version": "e1c012ae0cff5a5cf0b45d4d97479a5bcc1107151a4e3fbcb2c28312e1d94101",
@@ -811,63 +811,6 @@
       ]
     },
     "exportedModulesMap": {
-      "../src/methods/channels.ts": [
-        "../src/requesthandler.ts",
-        "../node_modules/@amanda/discordtypings/index.d.ts"
-      ],
-      "../src/snowtransfer.ts": [
-        "../src/methods/channels.ts",
-        "../src/requesthandler.ts",
-        "../src/methods/users.ts",
-        "../src/methods/emojis.ts",
-        "../src/methods/webhooks.ts",
-        "../src/methods/guilds.ts",
-        "../src/methods/invites.ts",
-        "../src/methods/voices.ts",
-        "../src/methods/bots.ts",
-        "../src/methods/auditlog.ts",
-        "../src/ratelimiter.ts"
-      ],
-      "../src/requesthandler.ts": [
-        "../src/ratelimiter.ts",
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/centra/index.d.ts"
-      ],
-      "../src/methods/auditlog.ts": [
-        "../src/requesthandler.ts",
-        "../node_modules/@amanda/discordtypings/index.d.ts"
-      ],
-      "../src/methods/bots.ts": [
-        "../src/requesthandler.ts"
-      ],
-      "../src/methods/voices.ts": [
-        "../src/requesthandler.ts"
-      ],
-      "../src/methods/invites.ts": [
-        "../src/requesthandler.ts"
-      ],
-      "../src/methods/guilds.ts": [
-        "../src/requesthandler.ts",
-        "../node_modules/@amanda/discordtypings/index.d.ts"
-      ],
-      "../src/methods/webhooks.ts": [
-        "../src/requesthandler.ts",
-        "../node_modules/@amanda/discordtypings/index.d.ts"
-      ],
-      "../src/methods/emojis.ts": [
-        "../src/requesthandler.ts",
-        "../node_modules/@amanda/discordtypings/index.d.ts"
-      ],
-      "../src/methods/users.ts": [
-        "../src/requesthandler.ts",
-        "../src/cache/usercache.ts",
-        "../node_modules/@amanda/discordtypings/index.d.ts"
-      ],
-      "../src/cache/usercache.ts": [
-        "../src/methods/users.ts",
-        "../node_modules/@amanda/discordtypings/index.d.ts",
-        "../src/cache/dewcache.ts"
-      ],
       "../src/ratelimitbuckets/localbucket.ts": [
         "../src/ratelimiter.ts"
       ],
@@ -876,6 +819,194 @@
       ],
       "../node_modules/@types/node/assert/strict.d.ts": [
         "../node_modules/@types/node/assert.d.ts"
+      ],
+      "../node_modules/@types/node/async_hooks.d.ts": [
+        "../node_modules/@types/node/async_hooks.d.ts"
+      ],
+      "../node_modules/@types/node/buffer.d.ts": [
+        "../node_modules/@types/node/buffer.d.ts"
+      ],
+      "../node_modules/@types/node/child_process.d.ts": [
+        "../node_modules/@types/node/child_process.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
+      ],
+      "../node_modules/@types/node/cluster.d.ts": [
+        "../node_modules/@types/node/cluster.d.ts",
+        "../node_modules/@types/node/child_process.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/net.d.ts"
+      ],
+      "../node_modules/@types/node/console.d.ts": [
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/node/constants.d.ts": [
+        "../node_modules/@types/node/constants.d.ts",
+        "../node_modules/@types/node/os.d.ts",
+        "../node_modules/@types/node/crypto.d.ts",
+        "../node_modules/@types/node/fs.d.ts"
+      ],
+      "../node_modules/@types/node/crypto.d.ts": [
+        "../node_modules/@types/node/crypto.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
+      ],
+      "../node_modules/@types/node/dgram.d.ts": [
+        "../node_modules/@types/node/dgram.d.ts",
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/node/dns.d.ts",
+        "../node_modules/@types/node/events.d.ts"
+      ],
+      "../node_modules/@types/node/dns.d.ts": [
+        "../node_modules/@types/node/dns.d.ts",
+        "../node_modules/@types/node/dns/promises.d.ts"
+      ],
+      "../node_modules/@types/node/dns/promises.d.ts": [
+        "../node_modules/@types/node/dns/promises.d.ts",
+        "../node_modules/@types/node/dns.d.ts"
+      ],
+      "../node_modules/@types/node/domain.d.ts": [
+        "../node_modules/@types/node/domain.d.ts",
+        "../node_modules/@types/node/events.d.ts"
+      ],
+      "../node_modules/@types/node/events.d.ts": [
+        "../node_modules/@types/node/events.d.ts"
+      ],
+      "../node_modules/@types/node/fs.d.ts": [
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/node/fs/promises.d.ts"
+      ],
+      "../node_modules/@types/node/fs/promises.d.ts": [
+        "../node_modules/@types/node/fs/promises.d.ts",
+        "../node_modules/@types/node/fs.d.ts"
+      ],
+      "../node_modules/@types/node/http.d.ts": [
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/node/net.d.ts"
+      ],
+      "../node_modules/@types/node/http2.d.ts": [
+        "../node_modules/@types/node/http2.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/tls.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/node/http.d.ts"
+      ],
+      "../node_modules/@types/node/https.d.ts": [
+        "../node_modules/@types/node/https.d.ts",
+        "../node_modules/@types/node/tls.d.ts",
+        "../node_modules/@types/node/http.d.ts",
+        "../node_modules/@types/node/url.d.ts"
+      ],
+      "../node_modules/@types/node/inspector.d.ts": [
+        "../node_modules/@types/node/inspector.d.ts",
+        "../node_modules/@types/node/events.d.ts"
+      ],
+      "../node_modules/@types/node/module.d.ts": [
+        "../node_modules/@types/node/module.d.ts",
+        "../node_modules/@types/node/url.d.ts"
+      ],
+      "../node_modules/@types/node/net.d.ts": [
+        "../node_modules/@types/node/net.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/dns.d.ts"
+      ],
+      "../node_modules/@types/node/os.d.ts": [
+        "../node_modules/@types/node/os.d.ts"
+      ],
+      "../node_modules/@types/node/path.d.ts": [
+        "../node_modules/@types/node/path.d.ts"
+      ],
+      "../node_modules/@types/node/perf_hooks.d.ts": [
+        "../node_modules/@types/node/perf_hooks.d.ts",
+        "../node_modules/@types/node/async_hooks.d.ts"
+      ],
+      "../node_modules/@types/node/process.d.ts": [
+        "../node_modules/@types/node/tty.d.ts"
+      ],
+      "../node_modules/@types/node/punycode.d.ts": [
+        "../node_modules/@types/node/punycode.d.ts"
+      ],
+      "../node_modules/@types/node/querystring.d.ts": [
+        "../node_modules/@types/node/querystring.d.ts"
+      ],
+      "../node_modules/@types/node/readline.d.ts": [
+        "../node_modules/@types/node/readline.d.ts",
+        "../node_modules/@types/node/events.d.ts"
+      ],
+      "../node_modules/@types/node/repl.d.ts": [
+        "../node_modules/@types/node/repl.d.ts",
+        "../node_modules/@types/node/readline.d.ts",
+        "../node_modules/@types/node/vm.d.ts",
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/node/stream.d.ts": [
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/stream/promises.d.ts"
+      ],
+      "../node_modules/@types/node/stream/promises.d.ts": [
+        "../node_modules/@types/node/stream/promises.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
+      ],
+      "../node_modules/@types/node/string_decoder.d.ts": [
+        "../node_modules/@types/node/string_decoder.d.ts"
+      ],
+      "../node_modules/@types/node/timers.d.ts": [
+        "../node_modules/@types/node/timers.d.ts"
+      ],
+      "../node_modules/@types/node/timers/promises.d.ts": [
+        "../node_modules/@types/node/timers/promises.d.ts",
+        "../node_modules/@types/node/timers.d.ts"
+      ],
+      "../node_modules/@types/node/tls.d.ts": [
+        "../node_modules/@types/node/tls.d.ts",
+        "../node_modules/@types/node/net.d.ts"
+      ],
+      "../node_modules/@types/node/trace_events.d.ts": [
+        "../node_modules/@types/node/trace_events.d.ts"
+      ],
+      "../node_modules/@types/node/tty.d.ts": [
+        "../node_modules/@types/node/tty.d.ts",
+        "../node_modules/@types/node/net.d.ts"
+      ],
+      "../node_modules/@types/node/url.d.ts": [
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/node/querystring.d.ts"
+      ],
+      "../node_modules/@types/node/util.d.ts": [
+        "../node_modules/@types/node/util.d.ts"
+      ],
+      "../node_modules/@types/node/v8.d.ts": [
+        "../node_modules/@types/node/v8.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
+      ],
+      "../node_modules/@types/node/vm.d.ts": [
+        "../node_modules/@types/node/vm.d.ts"
+      ],
+      "../node_modules/@types/node/worker_threads.d.ts": [
+        "../node_modules/@types/node/worker_threads.d.ts",
+        "../node_modules/@types/node/vm.d.ts",
+        "../node_modules/@types/node/events.d.ts",
+        "../node_modules/@types/node/stream.d.ts",
+        "../node_modules/@types/node/url.d.ts",
+        "../node_modules/@types/node/fs/promises.d.ts"
+      ],
+      "../node_modules/@types/node/zlib.d.ts": [
+        "../node_modules/@types/node/zlib.d.ts",
+        "../node_modules/@types/node/stream.d.ts"
+      ],
+      "../node_modules/@types/node/wasi.d.ts": [
+        "../node_modules/@types/node/wasi.d.ts"
       ],
       "../node_modules/@types/node/ts3.6/base.d.ts": [
         "../node_modules/@types/node/assert/strict.d.ts",
@@ -925,6 +1056,9 @@
         "../node_modules/@types/node/globals.global.d.ts",
         "../node_modules/@types/node/wasi.d.ts"
       ],
+      "../node_modules/@types/node/assert.d.ts": [
+        "../node_modules/@types/node/assert.d.ts"
+      ],
       "../node_modules/@types/node/base.d.ts": [
         "../node_modules/@types/node/ts3.6/base.d.ts",
         "../node_modules/@types/node/assert.d.ts"
@@ -932,209 +1066,112 @@
       "../node_modules/@types/node/index.d.ts": [
         "../node_modules/@types/node/base.d.ts"
       ],
-      "../node_modules/form-data/index.d.ts": [
-        "../node_modules/@types/node/stream.d.ts",
-        "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/index.d.ts"
-      ],
       "../node_modules/@types/centra/index.d.ts": [
         "../node_modules/@types/node/http.d.ts",
         "../node_modules/@types/node/url.d.ts",
         "../node_modules/@types/node/index.d.ts"
       ],
-      "../node_modules/@types/node/async_hooks.d.ts": [
-        "../node_modules/@types/node/async_hooks.d.ts"
-      ],
-      "../node_modules/@types/node/perf_hooks.d.ts": [
-        "../node_modules/@types/node/perf_hooks.d.ts",
-        "../node_modules/@types/node/async_hooks.d.ts"
-      ],
-      "../node_modules/@types/node/buffer.d.ts": [
-        "../node_modules/@types/node/buffer.d.ts"
-      ],
-      "../node_modules/@types/node/child_process.d.ts": [
-        "../node_modules/@types/node/child_process.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/node/net.d.ts",
-        "../node_modules/@types/node/stream.d.ts"
-      ],
-      "../node_modules/@types/node/cluster.d.ts": [
-        "../node_modules/@types/node/cluster.d.ts",
-        "../node_modules/@types/node/child_process.d.ts",
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/node/net.d.ts"
-      ],
-      "../node_modules/@types/node/console.d.ts": [
-        "../node_modules/@types/node/util.d.ts"
-      ],
-      "../node_modules/@types/node/constants.d.ts": [
-        "../node_modules/@types/node/constants.d.ts",
-        "../node_modules/@types/node/os.d.ts",
-        "../node_modules/@types/node/crypto.d.ts",
-        "../node_modules/@types/node/fs.d.ts"
-      ],
-      "../node_modules/@types/node/crypto.d.ts": [
-        "../node_modules/@types/node/crypto.d.ts",
-        "../node_modules/@types/node/stream.d.ts"
-      ],
-      "../node_modules/@types/node/dgram.d.ts": [
-        "../node_modules/@types/node/dgram.d.ts",
-        "../node_modules/@types/node/net.d.ts",
-        "../node_modules/@types/node/dns.d.ts",
-        "../node_modules/@types/node/events.d.ts"
-      ],
-      "../node_modules/@types/node/dns.d.ts": [
-        "../node_modules/@types/node/dns.d.ts",
-        "../node_modules/@types/node/dns/promises.d.ts"
-      ],
-      "../node_modules/@types/node/net.d.ts": [
-        "../node_modules/@types/node/net.d.ts",
+      "../node_modules/form-data/index.d.ts": [
         "../node_modules/@types/node/stream.d.ts",
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/node/dns.d.ts"
-      ],
-      "../node_modules/@types/node/tty.d.ts": [
-        "../node_modules/@types/node/tty.d.ts",
-        "../node_modules/@types/node/net.d.ts"
-      ],
-      "../node_modules/@types/node/process.d.ts": [
-        "../node_modules/@types/node/tty.d.ts"
-      ],
-      "../node_modules/@types/node/tls.d.ts": [
-        "../node_modules/@types/node/tls.d.ts",
-        "../node_modules/@types/node/net.d.ts"
-      ],
-      "../node_modules/@types/node/https.d.ts": [
-        "../node_modules/@types/node/https.d.ts",
-        "../node_modules/@types/node/tls.d.ts",
         "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/url.d.ts"
+        "../node_modules/@types/node/index.d.ts"
       ],
-      "../node_modules/@types/node/http2.d.ts": [
-        "../node_modules/@types/node/http2.d.ts",
+      "../src/requesthandler.ts": [
+        "../src/ratelimiter.ts",
         "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/net.d.ts",
-        "../node_modules/@types/node/stream.d.ts",
-        "../node_modules/@types/node/tls.d.ts",
-        "../node_modules/@types/node/url.d.ts",
-        "../node_modules/@types/node/http.d.ts"
+        "../node_modules/@types/centra/index.d.ts"
       ],
-      "../node_modules/@types/node/http.d.ts": [
-        "../node_modules/@types/node/http.d.ts",
-        "../node_modules/@types/node/stream.d.ts",
-        "../node_modules/@types/node/url.d.ts",
-        "../node_modules/@types/node/net.d.ts"
+      "../src/methods/channels.ts": [
+        "../src/requesthandler.ts",
+        "../node_modules/@amanda/discordtypings/index.d.ts"
       ],
-      "../node_modules/@types/node/dns/promises.d.ts": [
-        "../node_modules/@types/node/dns/promises.d.ts",
-        "../node_modules/@types/node/dns.d.ts"
+      "../src/cache/usercache.ts": [
+        "../src/methods/users.ts",
+        "../node_modules/@amanda/discordtypings/index.d.ts",
+        "../src/cache/dewcache.ts"
       ],
-      "../node_modules/@types/node/domain.d.ts": [
-        "../node_modules/@types/node/domain.d.ts",
-        "../node_modules/@types/node/events.d.ts"
+      "../src/methods/users.ts": [
+        "../src/requesthandler.ts",
+        "../src/cache/usercache.ts",
+        "../node_modules/@amanda/discordtypings/index.d.ts"
       ],
-      "../node_modules/@types/node/events.d.ts": [
-        "../node_modules/@types/node/events.d.ts"
+      "../src/methods/emojis.ts": [
+        "../src/requesthandler.ts",
+        "../node_modules/@amanda/discordtypings/index.d.ts"
       ],
-      "../node_modules/@types/node/fs.d.ts": [
-        "../node_modules/@types/node/fs.d.ts",
-        "../node_modules/@types/node/stream.d.ts",
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/node/url.d.ts",
-        "../node_modules/@types/node/fs/promises.d.ts"
+      "../src/methods/webhooks.ts": [
+        "../src/requesthandler.ts",
+        "../node_modules/@amanda/discordtypings/index.d.ts"
       ],
-      "../node_modules/@types/node/fs/promises.d.ts": [
-        "../node_modules/@types/node/fs/promises.d.ts",
-        "../node_modules/@types/node/fs.d.ts"
+      "../src/methods/guilds.ts": [
+        "../src/requesthandler.ts",
+        "../node_modules/@amanda/discordtypings/index.d.ts"
       ],
-      "../node_modules/@types/node/worker_threads.d.ts": [
-        "../node_modules/@types/node/worker_threads.d.ts",
-        "../node_modules/@types/node/vm.d.ts",
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/node/stream.d.ts",
-        "../node_modules/@types/node/url.d.ts",
-        "../node_modules/@types/node/fs/promises.d.ts"
+      "../src/methods/invites.ts": [
+        "../src/requesthandler.ts"
       ],
-      "../node_modules/@types/node/inspector.d.ts": [
-        "../node_modules/@types/node/inspector.d.ts",
-        "../node_modules/@types/node/events.d.ts"
+      "../src/methods/voices.ts": [
+        "../src/requesthandler.ts"
       ],
-      "../node_modules/@types/node/module.d.ts": [
-        "../node_modules/@types/node/module.d.ts",
-        "../node_modules/@types/node/url.d.ts"
+      "../src/methods/bots.ts": [
+        "../src/requesthandler.ts"
       ],
-      "../node_modules/@types/node/os.d.ts": [
-        "../node_modules/@types/node/os.d.ts"
+      "../src/methods/auditlog.ts": [
+        "../src/requesthandler.ts",
+        "../node_modules/@amanda/discordtypings/index.d.ts"
       ],
-      "../node_modules/@types/node/path.d.ts": [
-        "../node_modules/@types/node/path.d.ts"
-      ],
-      "../node_modules/@types/node/punycode.d.ts": [
-        "../node_modules/@types/node/punycode.d.ts"
-      ],
-      "../node_modules/@types/node/querystring.d.ts": [
-        "../node_modules/@types/node/querystring.d.ts"
-      ],
-      "../node_modules/@types/node/url.d.ts": [
-        "../node_modules/@types/node/url.d.ts",
-        "../node_modules/@types/node/querystring.d.ts"
-      ],
-      "../node_modules/@types/node/readline.d.ts": [
-        "../node_modules/@types/node/readline.d.ts",
-        "../node_modules/@types/node/events.d.ts"
-      ],
-      "../node_modules/@types/node/repl.d.ts": [
-        "../node_modules/@types/node/repl.d.ts",
-        "../node_modules/@types/node/readline.d.ts",
-        "../node_modules/@types/node/vm.d.ts",
-        "../node_modules/@types/node/util.d.ts"
-      ],
-      "../node_modules/@types/node/stream.d.ts": [
-        "../node_modules/@types/node/stream.d.ts",
-        "../node_modules/@types/node/events.d.ts",
-        "../node_modules/@types/node/stream/promises.d.ts"
-      ],
-      "../node_modules/@types/node/zlib.d.ts": [
-        "../node_modules/@types/node/zlib.d.ts",
-        "../node_modules/@types/node/stream.d.ts"
-      ],
-      "../node_modules/@types/node/v8.d.ts": [
-        "../node_modules/@types/node/v8.d.ts",
-        "../node_modules/@types/node/stream.d.ts"
-      ],
-      "../node_modules/@types/node/stream/promises.d.ts": [
-        "../node_modules/@types/node/stream/promises.d.ts",
-        "../node_modules/@types/node/stream.d.ts"
-      ],
-      "../node_modules/@types/node/string_decoder.d.ts": [
-        "../node_modules/@types/node/string_decoder.d.ts"
-      ],
-      "../node_modules/@types/node/timers.d.ts": [
-        "../node_modules/@types/node/timers.d.ts"
-      ],
-      "../node_modules/@types/node/timers/promises.d.ts": [
-        "../node_modules/@types/node/timers/promises.d.ts",
-        "../node_modules/@types/node/timers.d.ts"
-      ],
-      "../node_modules/@types/node/trace_events.d.ts": [
-        "../node_modules/@types/node/trace_events.d.ts"
-      ],
-      "../node_modules/@types/node/util.d.ts": [
-        "../node_modules/@types/node/util.d.ts"
-      ],
-      "../node_modules/@types/node/vm.d.ts": [
-        "../node_modules/@types/node/vm.d.ts"
-      ],
-      "../node_modules/@types/node/wasi.d.ts": [
-        "../node_modules/@types/node/wasi.d.ts"
-      ],
-      "../node_modules/@types/node/assert.d.ts": [
-        "../node_modules/@types/node/assert.d.ts"
+      "../src/snowtransfer.ts": [
+        "../src/methods/channels.ts",
+        "../src/requesthandler.ts",
+        "../src/methods/users.ts",
+        "../src/methods/emojis.ts",
+        "../src/methods/webhooks.ts",
+        "../src/methods/guilds.ts",
+        "../src/methods/invites.ts",
+        "../src/methods/voices.ts",
+        "../src/methods/bots.ts",
+        "../src/methods/auditlog.ts",
+        "../src/ratelimiter.ts"
       ]
     },
     "semanticDiagnosticsPerFile": [
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es5.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2020.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.dom.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.core.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.collection.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.generator.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.promise.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.object.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.string.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.intl.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.intl.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.promise.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.regexp.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.array.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.object.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.string.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.symbol.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2020.string.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.intl.d.ts",
+      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.bigint.d.ts",
       "../src/constants.ts",
       "../src/endpoints.ts",
       "../src/ratelimitbuckets/localbucket.ts",
@@ -1194,7 +1231,6 @@
       "../package.json",
       "../src/requesthandler.ts",
       "../node_modules/@amanda/discordtypings/index.d.ts",
-      "../src/methods/channels.ts",
       "../src/cache/dewcache.ts",
       "../src/cache/usercache.ts",
       "../src/methods/users.ts",
@@ -1205,44 +1241,8 @@
       "../src/methods/voices.ts",
       "../src/methods/bots.ts",
       "../src/methods/auditlog.ts",
-      "../src/snowtransfer.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2020.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es5.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.dom.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.core.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.collection.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.generator.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.iterable.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.promise.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.proxy.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.reflect.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.symbol.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.array.include.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.object.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.sharedmemory.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.string.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.intl.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2017.typedarrays.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.asyncgenerator.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.asynciterable.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.intl.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.promise.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2018.regexp.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.array.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.object.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.string.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2019.symbol.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2020.string.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2020.symbol.wellknown.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.intl.d.ts",
-      "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.esnext.bigint.d.ts"
+      "../src/methods/channels.ts",
+      "../src/snowtransfer.ts"
     ]
   },
   "version": "3.7.4"
