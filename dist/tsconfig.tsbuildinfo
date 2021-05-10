@@ -158,12 +158,12 @@
         "signature": "5df843b0178ef95ce5660fec2af883131098bc49b20d6564e8fc2e8643639c71"
       },
       "../src/ratelimitbuckets/localbucket.ts": {
-        "version": "7bfb1f5cbd68293db5e7e456702b3126ed0be9a8a04afcbf8e1b9dbdfddd0807",
-        "signature": "bf71c6963227c35294d4bbd889bca0d3251bd7ceca65ef5ead4ce83f35df60fb"
+        "version": "ad2536a06eb8bf39958575c97946ea35a6c45ba27b71874e57a85f5373001800",
+        "signature": "47611f05c46fc12ad34d24782c2322b970e144a2a0d674f9df66767653af40d7"
       },
       "../src/ratelimiter.ts": {
-        "version": "3e27033f05ae7c4b824ac86305c41183533c754f3b2844f6acd64800cd371692",
-        "signature": "62ab3f5fbb657af42e868b4ba6bf3e60166fc955a7f3991d42b1ed01ca1a1398"
+        "version": "7b4c614e9731705c7c26e69196055189f8ab7cb71799c00d16cf6d940016bb4e",
+        "signature": "8ef7345e9410b9985d4c46b44004ad879b702b8d449a4fd2dfacb9717e485b74"
       },
       "../node_modules/@types/node/assert/strict.d.ts": {
         "version": "c7bdc99177a2a94d25fb13722adaaf5b3291bf70b4d1b27584ba189dd3889ba3",
@@ -378,8 +378,8 @@
         "signature": "3da1e0602ad4c4ced3fe1887b4ec1f94bd5f0fc6ae01524262b7deb8dc35eae9"
       },
       "../src/requesthandler.ts": {
-        "version": "64aaa77558fd1d3b0e30b218138e2e3e604c92a9106f1311a29f6ffb7348c4da",
-        "signature": "256208223648d1d52032b323f63c555a2a05394404e8306adc64d450a22b6e2e"
+        "version": "2658412e08fd718939e13ab7776bab82eac382bf5b75551f8c81545e651b0345",
+        "signature": "ee37bab6f28b4662116eb0e013b5caf237f6f1b94cc29f685be975a6f2214c31"
       },
       "../node_modules/@amanda/discordtypings/index.d.ts": {
         "version": "278c6d9c0249fceba4f3e127952f64eaad4e942a18ce8734a131a16039d4d958",
@@ -387,7 +387,7 @@
       },
       "../src/methods/channels.ts": {
         "version": "52023120be3e4e54f0f9da5a728fc264e5226d785377a40a7b6c0db4c8361d42",
-        "signature": "615775a8a0dc03b867d73b0203d1a0075b1c097ed737071c92a5f8860a82c919"
+        "signature": "09ce283d04fa66939ccef5240961cebececc49edea66129c2fdd6fb072dd72a6"
       },
       "../src/cache/dewcache.ts": {
         "version": "e1c012ae0cff5a5cf0b45d4d97479a5bcc1107151a4e3fbcb2c28312e1d94101",
@@ -399,39 +399,39 @@
       },
       "../src/methods/users.ts": {
         "version": "2ca8247eec70ffda9f3ebd0fa8d2b79e1cc45b2339efebd2770e2cc250434f16",
-        "signature": "8e83788557047129a2cdd738d76a2c42b95491cc0f3d572d0756aa47a6308fe0"
+        "signature": "092edf31acb8c4b7b9733082124d8fd3caab3ff59849d14acd445d55bd8a44ae"
       },
       "../src/methods/emojis.ts": {
         "version": "617e14d6f7378cfa9e6ac3428a6d61047df1a193b34d2ea29c373e9c671ecf2a",
-        "signature": "1a63c76a847e1dacbe5ea626e3917ce18e9eb9f5c56b4d66df229f496c716ff5"
+        "signature": "f33e29be2ed9744d51850e25f2ce54bc2083241d59f16858369ce0b1a1f16545"
       },
       "../src/methods/webhooks.ts": {
         "version": "c4b84899e33c6b97aefcde6197975a4e21275d84ed36f36c6871e4ab8812da8c",
-        "signature": "7089be6b7a5c8ed82c98b7b90783e8e8217947cbf3dd01049ef0484f7fe5c881"
+        "signature": "75a49e0146b7c591d5e2d63a31cf973bb0966d226afe35c116f60c498a606044"
       },
       "../src/methods/guilds.ts": {
         "version": "ecd4d831324f5980fd7ea0ea3eaaeb5b7ae89fd2bc2237f122a0a9f39de020a0",
-        "signature": "c60b406ddd28147efb187aaa344218d949ff781e3834f7c2ce2421ce2fc47f15"
+        "signature": "75824ae14dbc9565a587f1670ff23dc14ea56ca51f5c0bec812c181ec4ad60ef"
       },
       "../src/methods/invites.ts": {
         "version": "2c289d1e6a39a16400a4fb5d81310d6e7fb0256f69b901f253182d39fa335125",
-        "signature": "bc7cb58d17fd2cb1bffe0632a4da8c2fe414408460c187c740957c9dfb8f3ffe"
+        "signature": "4f5c31566e3d134d7fa766ef2a1eb81baf02dd34477ca67e2e359e1eb7dadbba"
       },
       "../src/methods/voices.ts": {
         "version": "b4dd73553ebea6d2c1b9c427e29e88110c35a01aaae14d43dc4dd81ee723e4d3",
-        "signature": "79dafa01aec7fbed730f743f4c18fa093488c899020d2defcebfc215c0ade304"
+        "signature": "08ef0455507f85e48e04f1966cbf7d995e15f56cb9b7c0893783d81cae93b08a"
       },
       "../src/methods/bots.ts": {
         "version": "7ba8fa98d56e3d4ba01558c0f3b1d75d0aa48b108bca720b03740dc15f59d3df",
-        "signature": "df096b3871a9c37cf23c2bda41f08d2696ad45910aaefa934c853cfcfcb376c1"
+        "signature": "6b5b1e01bf4461bdab8c0badbafe4d77eedb536b9702fb721723d163c8e5b759"
       },
       "../src/methods/auditlog.ts": {
         "version": "ac4f3ed78dedf233e0009e5906b368cd6afa922088a8eb6620f3ec391925db29",
-        "signature": "9f5fee33a02e14101d6008c94b9239bfbfea144c78c54e1bf0b098c03e938477"
+        "signature": "32bda64c1e671bd8ce509abd114e5d16447ac9948c6b6eca34b50485085a7e40"
       },
       "../src/snowtransfer.ts": {
         "version": "6b0ef4f092778925d23de8a5384eb5781d1d84151cd703082b26d8d26452fcb0",
-        "signature": "d38813af40cf6ade237b269b2c03b694a5bffd6b9580bb756a675c38a7644cab"
+        "signature": "6b13662131270645f0bc18d6abd8d994f964104b56df4b4f8130d9e5f904e8a9"
       }
     },
     "options": {
@@ -452,7 +452,7 @@
       "noUnusedLocals": false,
       "outDir": "./",
       "pretty": true,
-      "removeComments": true,
+      "removeComments": false,
       "resolveJsonModule": true,
       "sourceMap": false,
       "strictFunctionTypes": true,

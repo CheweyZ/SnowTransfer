@@ -16,6 +16,11 @@ const AuditLog_1 = __importDefault(require("./methods/AuditLog"));
 const Endpoints_1 = __importDefault(require("./Endpoints"));
 const package_json_1 = require("../package.json");
 class SnowTransfer {
+    /**
+     * Create a new Rest Client
+     * @param token Discord Bot token to use
+     * @param options options
+     */
     constructor(token, options) {
         if (!token || token === "") {
             throw new Error("Missing token");

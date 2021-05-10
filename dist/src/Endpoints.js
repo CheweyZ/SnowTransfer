@@ -2,6 +2,12 @@
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
+/**
+ * Mostly taken from https://github.com/abalabahaha/eris/blob/master/lib/rest/Endpoints.js
+ *
+ * Removed User-only endpoints
+ * @private
+ */
 const Constants_1 = __importDefault(require("./Constants"));
 module.exports = {
     BASE_URL: "/api/v" + Constants_1.default.REST_API_VERSION,

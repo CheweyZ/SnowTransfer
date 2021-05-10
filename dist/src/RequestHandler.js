@@ -1,4 +1,6 @@
 "use strict";
+/* eslint-disable @typescript-eslint/ban-types */
+/* eslint-disable no-async-promise-executor */
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -42,7 +44,15 @@ class DiscordAPIError extends Error {
         return messages;
     }
 }
+/**
+ * Request Handler class
+ */
 class RequestHandler extends events_1.EventEmitter {
+    /**
+     * Create a new request handler
+     * @param ratelimiter ratelimiter to use for ratelimiting requests
+     * @param options options
+     */
     constructor(ratelimiter, options) {
         super();
         this.ratelimiter = ratelimiter;
@@ -57,10 +67,16 @@ class RequestHandler extends events_1.EventEmitter {
         Object.assign(this.options, options);
         this.apiURL = this.options.baseHost + Endpoints_1.default.BASE_URL;
         this.latency = 500;
-        this.remaining = {};
-        this.reset = {};
-        this.limit = {};
     }
+    /**
+     * Request a route from the discord api
+     * @param endpoint endpoint to request
+     * @param method http method to use
+     * @param dataType type of the data being sent
+     * @param data data to send, if any
+     * @param amount amount of requests previously executed
+     * @returns Result of the request
+     */
     request(endpoint, method, dataType = "json", data = {}, amount = 0) {
         if (typeof data === "number")
             data = String(data);
@@ -80,6 +96,7 @@ class RequestHandler extends events_1.EventEmitter {
                     else {
                         throw new Error("Forbidden dataType. Use json or multipart");
                     }
+                    // 429 and 502 are recoverable and will be re-tried automatically with 3 attempts max.
                     if (request.statusCode && !Constants_1.default.OK_STATUS_CODES.includes(request.statusCode) && ![429, 502].includes(request.statusCode))
                         throw new DiscordAPIError(endpoint, request.headers["content-type"] === "application/json" ? await request.json() : request.body, method, request.statusCode);
                     if (request.headers["date"]) {
@@ -115,15 +132,27 @@ class RequestHandler extends events_1.EventEmitter {
             }, endpoint, method);
         });
     }
+    /**
+     * Calculate the time difference between the local server and discord
+     * @param dateHeader Date header value returned by discord
+     * @returns Offset in milliseconds
+     */
     _getOffsetDateFromHeader(dateHeader) {
         const discordDate = Date.parse(dateHeader);
         const offset = Date.now() - discordDate;
         return Date.now() + offset;
     }
+    /**
+     * Apply the received ratelimit headers to the ratelimit bucket
+     * @param bkt Ratelimit bucket to apply the headers to
+     * @param headers Http headers received from discord
+     * @param offsetDate Unix timestamp of the current date + offset to discord time
+     * @param reactions Whether to use reaction ratelimits (1/250ms)
+     */
     _applyRatelimitHeaders(bkt, headers, offsetDate, reactions = false) {
         if (headers["x-ratelimit-global"]) {
             bkt.ratelimiter.global = true;
-            bkt.ratelimiter.globalReset = Number(headers["retry_after"]);
+            bkt.ratelimiter.globalResetAt = Date.now() + (parseFloat(headers["retry_after"]) * 1000);
         }
         if (headers["x-ratelimit-reset"]) {
             const reset = (headers["x-ratelimit-reset"] * 1000) - offsetDate;
@@ -136,6 +165,8 @@ class RequestHandler extends events_1.EventEmitter {
         }
         if (headers["x-ratelimit-remaining"]) {
             bkt.remaining = parseInt(headers["x-ratelimit-remaining"]);
+            if (bkt.remaining === 0)
+                bkt.resetAt = Date.now() + bkt.reset;
         }
         else {
             bkt.remaining = 1;
@@ -144,6 +175,14 @@ class RequestHandler extends events_1.EventEmitter {
             bkt.limit = parseInt(headers["x-ratelimit-limit"]);
         }
     }
+    /**
+     * Execute a normal json request
+     * @param endpoint Endpoint to use
+     * @param data Data to send
+     * @param useParams Whether to send the data in the body or use query params
+     * @param amount amount of requests previously executed
+     * @returns Result of the request
+     */
     async _request(endpoint, method, data, useParams = false, amount = 0) {
         if (amount >= 3)
             throw new Error("Max amount of rety attempts reached");
@@ -168,6 +207,13 @@ class RequestHandler extends events_1.EventEmitter {
             return req.send();
         }
     }
+    /**
+     * Execute a multipart/form-data request
+     * @param endpoint Endpoint to use
+     * @param method Http Method to use
+     * @param data data to send
+     * @returns Result of the request
+     */
     async _multiPartRequest(endpoint, method, data, amount = 0) {
         if (amount >= 3)
             throw new Error("Max amount of rety attempts reached");
@@ -177,6 +223,7 @@ class RequestHandler extends events_1.EventEmitter {
             delete data.file.file;
         }
         form.append("payload_json", JSON.stringify(data));
+        // duplicate headers in options as to not risk mutating the state.
         const newHeaders = Object.assign({}, this.options.headers, form.getHeaders());
         return centra_1.default(this.apiURL, method).path(endpoint).header(newHeaders).body(form.getBuffer()).send();
     }

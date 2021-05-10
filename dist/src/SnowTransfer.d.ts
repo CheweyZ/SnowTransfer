@@ -32,6 +32,11 @@ declare class SnowTransfer {
     bot: BotMethods;
     auditLog: AuditLogMethods;
     ratelimiter: Ratelimiter;
+    /**
+     * Create a new Rest Client
+     * @param token Discord Bot token to use
+     * @param options options
+     */
     constructor(token: string, options?: {
         baseHost?: string;
         disableEveryone?: boolean;
