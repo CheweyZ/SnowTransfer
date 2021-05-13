@@ -162,8 +162,8 @@
         "signature": "47611f05c46fc12ad34d24782c2322b970e144a2a0d674f9df66767653af40d7"
       },
       "../src/ratelimiter.ts": {
-        "version": "7b4c614e9731705c7c26e69196055189f8ab7cb71799c00d16cf6d940016bb4e",
-        "signature": "8ef7345e9410b9985d4c46b44004ad879b702b8d449a4fd2dfacb9717e485b74"
+        "version": "218e5423c8345f154ff01c4a61f0c9637863668e8658576421d064c1c818afad",
+        "signature": "6feef4cfd98b1ccdd6248a91008b5701a7a2fb0a61adbeb74ee7c8fac0f514da"
       },
       "../node_modules/@types/node/assert/strict.d.ts": {
         "version": "c7bdc99177a2a94d25fb13722adaaf5b3291bf70b4d1b27584ba189dd3889ba3",

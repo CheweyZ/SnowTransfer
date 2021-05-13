@@ -32,10 +32,9 @@ class Ratelimiter {
             }
         };
         this._timeoutDuration = 1000;
-        this._timeout = setTimeout(() => {
-            this._timeoutFN();
-            this._timeout = setTimeout(() => this._timeoutFN(), this._timeoutDuration);
-        }, this._timeoutDuration);
+        this._timeout = setInterval(() => {
+            limiter._timeoutFN();
+        }, limiter._timeoutDuration);
     }
     /**
      * Returns a key for saving ratelimits for routes

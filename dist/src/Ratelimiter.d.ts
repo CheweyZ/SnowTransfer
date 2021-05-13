@@ -11,7 +11,7 @@ declare class Ratelimiter {
     global: boolean;
     globalResetAt: number;
     /**
-     * This is an "interval" to constantly check Buckets which should be reset or unreferenced from the RateLimiter to be swept by the garbage collector.
+     * This is an interval to constantly check Buckets which should be reset or unreferenced from the RateLimiter to be swept by the garbage collector.
      * This 1 timeout is more performant as compared to potentially many more ticking timers to reset individual bucket remaining values.
      *
      * YOU SHOULD NEVER OVERRIDE THIS UNLESS YOU KNOW WHAT YOU'RE DOING. REQUESTS MAY POSSIBLY NEVER EXECUTE WITHOUT THIS AND/OR MEMORY MAY SLOWLY CLIMB OVER TIME.
