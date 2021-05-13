@@ -380,6 +380,61 @@ declare class ChannelMethods {
      */
     removeDmChannelRecipient(channelId: string, userId: string): Promise<void>;
     /**
+     * Creates a public thread off a message in a channel
+     * @param channelId Id of the channel
+     * @param messageId Id of the message
+     * @param options Thread meta data
+     * @returns [thread channel](https://discord.com/developers/docs/resources/channel#channel-object) object
+     */
+    createPublicThread(channelId: string, messageId: string, options: {
+        name: string;
+        auto_archive_duration: 60 | 1440 | 4320 | 10080;
+    }): Promise<import("@amanda/discordtypings").ThreadChannelData>;
+    /**
+     * Creates a private thread under a channel
+     * @param channelId Id of the channel
+     * @param options Thread meta data
+     * @returns [thread channel](https://discord.com/developers/docs/resources/channel#channel-object) object
+     */
+    createPrivateThread(channelId: string, options: {
+        name: string;
+        auto_archive_duration: 60 | 1440 | 4320 | 10080;
+    }): Promise<import("@amanda/discordtypings").ThreadChannelData>;
+    /**
+     * Join a thread
+     * @param channelId Id of the channel
+     * @returns Resolves the Promise on successful execution
+     */
+    joinThread(channelId: string): Promise<void>;
+    /**
+     * Add a user to a thread
+     * @param channelId Id of the channel
+     * @param userId Id of the user to add
+     * @returns Resolves the Promise on successful execution
+     *
+     * | Permissions needed | Condition |
+     * |--------------------|-----------|
+     * | SEND_MESSAGES      | always    |
+     */
+    addThreadMember(channelId: string, userId: string): Promise<void>;
+    /**
+     * Leave a thread
+     * @param channelId Id of the channel
+     * @returns Resolves the Promise on successful execution
+     */
+    leaveThread(channelId: string): Promise<void>;
+    /**
+     * Remove a user from a thread
+     * @param channelId Id of the channel
+     * @param userId Id of the user to remove
+     * @returns Resolves the Promise on successful execution
+     *
+     * | Permissions needed | Condition                                            |
+     * |--------------------|------------------------------------------------------|
+     * | MANAGE_THREADS     | if the current user is not the creator of the thread |
+     */
+    removeThreadMember(channelId: string, userId: string): Promise<void>;
+    /**
      * Gets all members within a thread
      * @param channelId Id of the Thread
      * @returns Array of [thread member objects](https://discord.com/developers/docs/resources/channel#thread-member-object)

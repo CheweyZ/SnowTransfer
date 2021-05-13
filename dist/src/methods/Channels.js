@@ -176,14 +176,7 @@ class ChannelMethods {
         }
         // Sanitize the message
         if (data.content && (options.disableEveryone !== undefined ? options.disableEveryone : this.disableEveryone)) {
-            data.content = data.content.replace(/@([^<>@ ]*)/gsmu, (match, target) => {
-                if (target.match(/^[&!]?\d+$/)) {
-                    return `@${target}`;
-                }
-                else {
-                    return `@\u200b${target}`;
-                }
-            });
+            data.content = data.content.replace(/@([^<>@ ]*)/gsmu, replaceEveryone);
         }
         if (data.file) {
             return this.requestHandler.request(Endpoints_1.default.CHANNEL_MESSAGES(channelId), "post", "multipart", data);
@@ -215,14 +208,7 @@ class ChannelMethods {
         }
         // Sanitize the message
         if (data.content && (options.disableEveryone !== undefined ? options.disableEveryone : this.disableEveryone)) {
-            data.content = data.content.replace(/@([^<>@ ]*)/gsmu, (match, target) => {
-                if (target.match(/^[&!]?\d+$/)) {
-                    return `@${target}`;
-                }
-                else {
-                    return `@\u200b${target}`;
-                }
-            });
+            data.content = data.content.replace(/@([^<>@ ]*)/gsmu, replaceEveryone);
         }
         return this.requestHandler.request(Endpoints_1.default.CHANNEL_MESSAGE(channelId, messageId), "patch", "json", data);
     }
@@ -259,7 +245,7 @@ class ChannelMethods {
             throw new Error(`Amount of messages to be deleted has to be between ${Constants_1.default.BULK_DELETE_MESSAGES_MIN} and ${Constants_1.default.BULK_DELETE_MESSAGES_MAX}`);
         }
         // (Current date - (discord epoch + 2 weeks)) * (2**22) weird constant that everybody seems to use
-        const oldestSnowflake = BigInt((Date.now() - 1421280000000) * 2 ** 22);
+        const oldestSnowflake = BigInt(Date.now() - 1421280000000) * BigInt(2 ** 22);
         const forbiddenMessage = messages.find(m => BigInt(m) < oldestSnowflake);
         if (forbiddenMessage) {
             throw new Error(`The message ${forbiddenMessage} is older than 2 weeks and may not be deleted using the bulk delete endpoint`);
@@ -492,6 +478,67 @@ class ChannelMethods {
         return this.requestHandler.request(Endpoints_1.default.CHANNEL_RECIPIENT(channelId, userId), "delete", "json");
     }
     /**
+     * Creates a public thread off a message in a channel
+     * @param channelId Id of the channel
+     * @param messageId Id of the message
+     * @param options Thread meta data
+     * @returns [thread channel](https://discord.com/developers/docs/resources/channel#channel-object) object
+     */
+    async createPublicThread(channelId, messageId, options) {
+        return this.requestHandler.request(Endpoints_1.default.CHANNEL_PUBLIC_THREAD(channelId, messageId), "post", "json", options);
+    }
+    /**
+     * Creates a private thread under a channel
+     * @param channelId Id of the channel
+     * @param options Thread meta data
+     * @returns [thread channel](https://discord.com/developers/docs/resources/channel#channel-object) object
+     */
+    async createPrivateThread(channelId, options) {
+        return this.requestHandler.request(Endpoints_1.default.CHANNEL_PRIVATE_THREAD(channelId), "post", "json", options);
+    }
+    /**
+     * Join a thread
+     * @param channelId Id of the channel
+     * @returns Resolves the Promise on successful execution
+     */
+    async joinThread(channelId) {
+        return this.requestHandler.request(Endpoints_1.default.CHANNEL_THREAD_MEMBER(channelId, "@me"), "put", "json");
+    }
+    /**
+     * Add a user to a thread
+     * @param channelId Id of the channel
+     * @param userId Id of the user to add
+     * @returns Resolves the Promise on successful execution
+     *
+     * | Permissions needed | Condition |
+     * |--------------------|-----------|
+     * | SEND_MESSAGES      | always    |
+     */
+    async addThreadMember(channelId, userId) {
+        return this.requestHandler.request(Endpoints_1.default.CHANNEL_THREAD_MEMBER(channelId, userId), "put", "json");
+    }
+    /**
+     * Leave a thread
+     * @param channelId Id of the channel
+     * @returns Resolves the Promise on successful execution
+     */
+    async leaveThread(channelId) {
+        return this.requestHandler.request(Endpoints_1.default.CHANNEL_THREAD_MEMBER(channelId, "@me"), "delete", "json");
+    }
+    /**
+     * Remove a user from a thread
+     * @param channelId Id of the channel
+     * @param userId Id of the user to remove
+     * @returns Resolves the Promise on successful execution
+     *
+     * | Permissions needed | Condition                                            |
+     * |--------------------|------------------------------------------------------|
+     * | MANAGE_THREADS     | if the current user is not the creator of the thread |
+     */
+    removeThreadMember(channelId, userId) {
+        return this.requestHandler.request(Endpoints_1.default.CHANNEL_THREAD_MEMBER(channelId, userId), "delete", "json");
+    }
+    /**
      * Gets all members within a thread
      * @param channelId Id of the Thread
      * @returns Array of [thread member objects](https://discord.com/developers/docs/resources/channel#thread-member-object)
@@ -554,6 +601,14 @@ class ChannelMethods {
      */
     async getChannelArchivedPublicThreads(channelId) {
         return this.requestHandler.request(Endpoints_1.default.CHANNEL_THREADS_ARCHIVED_PUBLIC(channelId), "get", "json");
+    }
+}
+function replaceEveryone(match, target) {
+    if (target.match(/^[&!]?\d+$/)) {
+        return `@${target}`;
+    }
+    else {
+        return `@\u200b${target}`;
     }
 }
 module.exports = ChannelMethods;

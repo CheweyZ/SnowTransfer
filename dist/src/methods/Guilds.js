@@ -42,8 +42,11 @@ class GuildMethods {
      * @param guildId Id of the guild
      * @returns [Guild object](https://discord.com/developers/docs/resources/guild#guild-object)
      */
-    async getGuild(guildId) {
-        return this.requestHandler.request(Endpoints_1.default.GUILD(guildId), "get", "json");
+    async getGuild(guildId, options) {
+        return this.requestHandler.request(Endpoints_1.default.GUILD(guildId), "get", "json", options);
+    }
+    async getGuildPreview(guildId) {
+        return this.requestHandler.request(Endpoints_1.default.GUILD_PREVIEW(guildId), "get", "json");
     }
     /**
      * Update a guild
@@ -124,6 +127,15 @@ class GuildMethods {
      */
     async getGuildMembers(guildId, data = {}) {
         return this.requestHandler.request(Endpoints_1.default.GUILD_MEMBERS(guildId), "get", "json", data);
+    }
+    /**
+     * Get a list of guild members that match a query
+     * @param guildId Id of the guild
+     * @param options query data
+     * @returns list of [guild members](https://discord.com/developers/docs/resources/guild#guild-member-object-guild-member-structure)
+     */
+    async searchGuildMembers(guildId, options) {
+        return this.requestHandler.request(Endpoints_1.default.GUILD_MEMBERS_SEARCH(guildId), "get", "json", options);
     }
     /**
      * Add a guild member to a guild via oauth2 access token
@@ -488,41 +500,97 @@ class GuildMethods {
         return this.requestHandler.request(Endpoints_1.default.GUILD_INTEGRATION(guildId, integrationId), "delete", "json");
     }
     /**
-     * Synchronize a guild integration
+     * Gets a guild widget object
      * @param guildId Id of the guild
-     * @param integrationId Id of the integration
+     * @returns [Guild Widget](https://discord.com/developers/docs/resources/guild#guild-widget-object)
+     */
+    async getGuildWidget(guildId) {
+        return this.requestHandler.request(Endpoints_1.default.GUILD_WIDGET(guildId), "get", "json");
+    }
+    /**
+     * Get a guild widget settings object
+     * @param guildId Id of the guild
+     * @returns [Guild Widget](https://discord.com/developers/docs/resources/guild#guild-widget-object)
+     *
+     * | Permissions needed | Condition |
+     * |--------------------|-----------|
+     * | MANAGE_GUILD       | always    |
+     */
+    async getGuildWidgetSettings(guildId) {
+        return this.requestHandler.request(Endpoints_1.default.GUILD_WIDGET_SETTINGS(guildId), "get", "json");
+    }
+    /**
+     * Update a guild widget settings object
+     * @param guildId Id of the guild
+     * @param data basic data of widget settings
+     * @returns [Guild Widget](https://discord.com/developers/docs/resources/guild#guild-widget-object)
+     *
+     * | Permissions needed | Condition |
+     * |--------------------|-----------|
+     * | MANAGE_GUILD       | always    |
+     */
+    async updateGuildWidgetSettings(guildId, data) {
+        return this.requestHandler.request(Endpoints_1.default.GUILD_WIDGET_SETTINGS(guildId), "patch", "json", data);
+    }
+    /**
+     * Get a guild's vanity URL code
+     * @param guildId Id of the guild
+     * @returns partial [invite object](https://discord.com/developers/docs/resources/guild#get-guild-vanity-url-example-partial-invite-object)
+     *
+     * | Permissions needed | Condition |
+     * |--------------------|-----------|
+     * | MANAGE_GUILD       | always    |
+     */
+    async getGuildVanityURL(guildId) {
+        return this.requestHandler.request(Endpoints_1.default.GUILD_VANITY(guildId), "get", "json");
+    }
+    /**
+     * Get a guild's welcome screen object
+     * @param guildId Id of the guild
+     * @returns [Guild Welcome Screen](https://discord.com/developers/docs/resources/guild#welcome-screen-object)
+     */
+    async getGuildWelcomeScreen(guildId) {
+        return this.requestHandler.request(Endpoints_1.default.GUILD_WELCOME_SCREEN(guildId), "get", "json");
+    }
+    /**
+     * Update a guild welcome screen object
+     * @param guildId Id of guild
+     * @param data Welcome screen data
+     * @returns [Guild Welcome Screen](https://discord.com/developers/docs/resources/guild#welcome-screen-object)
+     *
+     * | Permissions needed | Condition |
+     * |--------------------|-----------|
+     * | MANAGE_GUILD       | always    |
+     */
+    async editGuildWelcomeScreen(guildId, data) {
+        return this.requestHandler.request(Endpoints_1.default.GUILD_WELCOME_SCREEN(guildId), "patch", "json", data);
+    }
+    /**
+     * Updates the current user's voice state in a stage channel
+     * @param guildId Id of the guild
+     * @param data Data of the voice state
      * @returns Resolves the Promise on successful execution
      *
-     * | Permissions needed | Condition |
-     * |--------------------|-----------|
-     * | MANAGE_GUILD       | always    |
+     * | Permissions needed | Condition                           |
+     * |--------------------|-------------------------------------|
+     * | MUTE_MEMBERS       | when trying to un-suppress yourself |
+     * | REQUEST_TO_SPEAK   | when trying to request to speak     |
      */
-    async syncGuildIntegration(guildId, integrationId) {
-        return this.requestHandler.request(Endpoints_1.default.GUILD_INTEGRATION(guildId, integrationId), "delete", "json");
+    updateCurrentUserVoiceState(guildId, data) {
+        return this.requestHandler.request(Endpoints_1.default.GUILD_VOICE_STATE_USER(guildId, "@me"), "patch", "json", data);
     }
     /**
-     * Get the guild embed object
+     * Updates a user's voice state in a stage channel
      * @param guildId Id of the guild
-     * @returns [Guild Embed](https://discord.com/developers/docs/resources/guild#guild-embed-object)
+     * @param data Data of the voice state
+     * @returns Resolves the Promise on successful execution
      *
-     * | Permissions needed | Condition |
-     * |--------------------|-----------|
-     * | MANAGE_GUILD       | always    |
+     * | Permissions needed | Condition                           |
+     * |--------------------|-------------------------------------|
+     * | MUTE_MEMBERS       | when trying to suppress/un-suppress |
      */
-    async getGuildEmbed(guildId) {
-        return this.requestHandler.request(Endpoints_1.default.GUILD_EMBED(guildId), "get", "json");
-    }
-    /**
-     * Update a guild embed object
-     * @param guildId Id of the guild
-     * @returns [Guild Embed](https://discord.com/developers/docs/resources/guild#guild-embed-object)
-     *
-     * | Permissions needed | Condition |
-     * |--------------------|-----------|
-     * | MANAGE_GUILD       | always    |
-     */
-    async updateGuildEmbed(guildId, data) {
-        return this.requestHandler.request(Endpoints_1.default.GUILD_EMBED(guildId), "patch", "json", data);
+    updateUserVoiceState(guildId, userId, data) {
+        return this.requestHandler.request(Endpoints_1.default.GUILD_VOICE_STATE_USER(guildId, userId), "patch", "json", data);
     }
 }
 module.exports = GuildMethods;

@@ -24,17 +24,18 @@ class InviteMethods {
      * @param withCounts When set to true you get an invite object with additional `approximate_presence_count` and `approximate_member_count` fields
      * @returns [Invite Object](https://discord.com/developers/docs/resources/invite#invite-object)
      */
-    async getInvite(inviteId, withCounts = false) {
-        return this.requestHandler.request(Endpoints_1.default.INVITE(inviteId), "get", "json", { with_counts: withCounts });
+    async getInvite(inviteId, options) {
+        return this.requestHandler.request(Endpoints_1.default.INVITE(inviteId), "get", "json", options);
     }
     /**
      * Delete an invite
      * @param inviteId
      * @returns [Invite Object](https://discord.com/developers/docs/resources/invite#invite-object)
      *
-     * | Permissions needed | Condition |
-     * |--------------------|-----------|
-     * | MANAGE_CHANNELS    | always    |
+     * | Permissions needed | Condition                                     |
+     * |--------------------|-----------------------------------------------|
+     * | MANAGE_CHANNELS    | for invite that belongs to a specific channel |
+     * | MANAGE_GUILD       | delete any invite guild wide                  |
      */
     async deleteInvite(inviteId) {
         return this.requestHandler.request(Endpoints_1.default.INVITE(inviteId), "delete", "json");

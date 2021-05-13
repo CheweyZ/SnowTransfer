@@ -1,5 +1,4 @@
 import UserCache from "../cache/UserCache";
-import DT from "@amanda/discordtypings";
 /**
  * Methods for interacting with users
  */
@@ -19,13 +18,13 @@ declare class UserMethods {
      * Get information about current user
      * @returns [user object](https://discord.com/developers/docs/resources/user#user-object)
      */
-    getSelf(): Promise<SelfUser>;
+    getSelf(): Promise<Required<import("@amanda/discordtypings").UserData>>;
     /**
      * Get information about a user via Id
      * @param userId Id of the user
      * @returns [user object](https://discord.com/developers/docs/resources/user#user-object)
      */
-    getUser(userId: string): Promise<DT.UserData>;
+    getUser(userId: string): Promise<import("@amanda/discordtypings").UserData>;
     /**
      * Update the current user
      * @returns [user object](https://discord.com/developers/docs/resources/user#user-object)
@@ -42,12 +41,12 @@ declare class UserMethods {
     updateSelf(data: {
         username?: string;
         avatar?: string;
-    }): Promise<SelfUser>;
+    }): Promise<Required<import("@amanda/discordtypings").UserData>>;
     /**
      * Get guilds of the current user
      * @returns Array of [partial guild objects](https://discord.com/developers/docs/resources/guild#guild-object)
      */
-    getGuilds(): Promise<Array<DT.GuildData>>;
+    getGuilds(): Promise<Array<import("@amanda/discordtypings").GuildData>>;
     /**
      * Leave a guild
      * @param guildId Id of the guild
@@ -60,7 +59,7 @@ declare class UserMethods {
      * **Returns an empty array for bots**
      * @returns Array of [dm channels](https://discord.com/developers/docs/resources/channel#channel-object)
      */
-    getDirectMessages(): Promise<Array<DT.DMChannelData>>;
+    getDirectMessages(): Promise<Array<import("@amanda/discordtypings").DMChannelData>>;
     /**
      * Create a direct message channel with another user
      *
@@ -74,11 +73,6 @@ declare class UserMethods {
      * let channel = await client.user.createDirectMessageChannel('other user id')
      * client.channel.createMessage(channel.id, 'hi')
      */
-    createDirectMessageChannel(userId: string): Promise<DT.DMChannelData>;
-}
-interface SelfUser extends DT.UserData {
-    mfa_enabled: boolean;
-    verified: boolean;
-    email: string;
+    createDirectMessageChannel(userId: string): Promise<import("@amanda/discordtypings").DMChannelData>;
 }
 export = UserMethods;

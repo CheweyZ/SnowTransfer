@@ -19,38 +19,7 @@ declare class AuditLogMethods {
      * |--------------------|
      * | VIEW_AUDIT_LOG     |
      */
-    getAuditLog(guildId: string, data?: GetAuditLogOptions): Promise<AuditLogObject>;
-}
-/**
- * Audit Log Object
- */
-interface AuditLogObject {
-    /**
-     * list of [webhooks](https://discord.com/developers/docs/resources/webhook#webhook-object-webhook-structure) found in the audit log
-     */
-    webhooks: Array<any>;
-    /**
-     * list of [users](https://discord.com/developers/docs/resources/user#user-object) found in the audit log
-     */
-    users: Array<import("@amanda/discordtypings").UserData>;
-    /**
-     * list of [audit log entries](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-entry-structure)
-     */
-    audit_log_entries: Array<AuditLogEntry>;
-}
-interface AuditLogEntry {
-    target_id: string;
-    changes: Array<AuditLogChange>;
-    user_id: string;
-    id: string;
-    action_type: number;
-    options: any;
-    reason: string;
-}
-interface AuditLogChange {
-    new_value: string | number | boolean | Array<import("@amanda/discordtypings").RoleData> | Array<import("@amanda/discordtypings").PermissionOverwriteData>;
-    old_value: string | number | boolean | Array<import("@amanda/discordtypings").RoleData> | Array<import("@amanda/discordtypings").PermissionOverwriteData>;
-    key: string;
+    getAuditLog(guildId: string, data?: GetAuditLogOptions): Promise<import("@amanda/discordtypings").AuditLogObject>;
 }
 interface GetAuditLogOptions {
     /**
@@ -60,7 +29,7 @@ interface GetAuditLogOptions {
     /**
      * [Type](https://discord.com/developers/docs/resources/audit-log#audit-log-entry-object-audit-log-events) of the audit log event
      */
-    action_type?: number;
+    action_type?: import("@amanda/discordtypings").AuditLogEventType;
     /**
      * Filter the audit log before a certain entry id
      */
