@@ -58,8 +58,8 @@ class InteractionMethods {
     getOriginalInteractionResponse(appID, token) {
         return this.webhooks.getWebhookMessage(appID, token, "@original");
     }
-    createInteractionResponse(appID, token, data) {
-        return this.requestHandler.request(Endpoints_1.default.WEBHOOK_TOKEN(appID, token), "post", "json", data);
+    createInteractionResponse(interactionID, token, data) {
+        return this.requestHandler.request(Endpoints_1.default.INTERACTION_CALLBACK(interactionID, token), "post", "json", data);
     }
     editOriginalInteractionResponse(appID, token, data) {
         return this.webhooks.editWebhookMessage(appID, token, "@original", data);

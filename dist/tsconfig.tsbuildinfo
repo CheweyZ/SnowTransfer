@@ -374,7 +374,7 @@
         "signature": "736097ddbb2903bef918bb3b5811ef1c9c5656f2a73bd39b22a91b9cc2525e50"
       },
       "../package.json": {
-        "version": "2d2a244e4d82ac7dd988304503a88413e41221ca4e9e7260a02d97eb2835e176",
+        "version": "4c055f759d070777aec485398a94c96aa9c3e1fdc1d9c7c7e34cef22be3fe09a",
         "signature": "3da1e0602ad4c4ced3fe1887b4ec1f94bd5f0fc6ae01524262b7deb8dc35eae9"
       },
       "../src/requesthandler.ts": {
@@ -414,8 +414,8 @@
         "signature": "e590754f66b81a1aa0f297a6e52851a68d95b0fa97e6d60f0b5a487f6bfa6621"
       },
       "../src/methods/interactions.ts": {
-        "version": "10af6756b540ea402665e2ea8d38e0d0203a457076f463911d7ed4e2ac44ff94",
-        "signature": "2d669bb3e72e197105ba42174797ec07f02e19f20e0009c2d382ce0aa418ca60"
+        "version": "5bdfa7339fb5d16f7ec214e0608a66f3d99973bd42b5ab732bf075b3d6545943",
+        "signature": "936c10b19c6141344b7b2099572e6e71920ca9a4f55ccc43a19bd2ed98fa3e2a"
       },
       "../src/methods/invites.ts": {
         "version": "054b2c4e704bc7f5e320952958eff8b3986dd50dbfc115d00ca3c9b668ec8c61",

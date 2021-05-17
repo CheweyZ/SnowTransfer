@@ -14,20 +14,20 @@ declare class InteractionMethods {
      * @param requestHandler request handler that calls the rest api
      */
     constructor(requestHandler: import("../RequestHandler"), webhooks: import("./Webhooks"));
-    getApplicationCommands(appID: string): Promise<any>;
-    getApplicationCommand(appID: string, cmdID: string): Promise<any>;
-    createApplicationCommand(appID: string, data: CommandData): Promise<any>;
-    editApplicationCommand(appID: string, cmdID: string, data: Partial<CommandData>): Promise<any>;
-    bulkOverwriteApplicationCommands(appID: any, data: Array<CommandData>): Promise<any>;
-    deleteApplicationCommand(appID: string, cmdID: string): Promise<any>;
-    getGuildApplicationCommands(appID: string, guildID: string): Promise<any>;
-    getGuildApplicationCommand(appID: string, guildID: string, cmdID: string): Promise<any>;
-    createGuildApplicationCommand(appID: string, guildID: string, data: CommandData): Promise<any>;
-    editGuildApplicationCommand(appID: string, guildID: string, cmdID: string, data: Partial<CommandData>): Promise<any>;
-    bulkOverwriteGuildApplicationCommand(appID: string, guildID: string, data: Array<CommandData>): Promise<any>;
+    getApplicationCommands(appID: string): Promise<Array<import("@amanda/discordtypings").ApplicationCommand>>;
+    getApplicationCommand(appID: string, cmdID: string): Promise<import("@amanda/discordtypings").ApplicationCommand>;
+    createApplicationCommand(appID: string, data: CommandData): Promise<import("@amanda/discordtypings").ApplicationCommand>;
+    editApplicationCommand(appID: string, cmdID: string, data: Partial<CommandData>): Promise<import("@amanda/discordtypings").ApplicationCommand>;
+    bulkOverwriteApplicationCommands(appID: any, data: Array<CommandData>): Promise<Array<import("@amanda/discordtypings").ApplicationCommand>>;
+    deleteApplicationCommand(appID: string, cmdID: string): Promise<void>;
+    getGuildApplicationCommands(appID: string, guildID: string): Promise<Array<import("@amanda/discordtypings").ApplicationCommand>>;
+    getGuildApplicationCommand(appID: string, guildID: string, cmdID: string): Promise<import("@amanda/discordtypings").ApplicationCommand>;
+    createGuildApplicationCommand(appID: string, guildID: string, data: CommandData): Promise<import("@amanda/discordtypings").ApplicationCommand>;
+    editGuildApplicationCommand(appID: string, guildID: string, cmdID: string, data: Partial<CommandData>): Promise<import("@amanda/discordtypings").ApplicationCommand>;
+    bulkOverwriteGuildApplicationCommand(appID: string, guildID: string, data: Array<CommandData>): Promise<Array<import("@amanda/discordtypings").ApplicationCommand>>;
     deleteGuildApplicationCommand(appID: string, guildID: string, cmdID: string): Promise<void>;
     getOriginalInteractionResponse(appID: string, token: string): Promise<import("@amanda/discordtypings").MessageData>;
-    createInteractionResponse(appID: string, token: string, data: import("@amanda/discordtypings").InteractionResponseData): Promise<void>;
+    createInteractionResponse(interactionID: string, token: string, data: import("@amanda/discordtypings").InteractionResponseData): Promise<void>;
     editOriginalInteractionResponse(appID: string, token: string, data: Parameters<WebhookMethods["editWebhookMessage"]>[3]): Promise<import("@amanda/discordtypings").MessageData>;
     deleteOriginalInteractionResponse(appID: string, token: string): Promise<void>;
     createFollowupMessage(appID: string, token: string, data: Parameters<WebhookMethods["executeWebhook"]>[2] & {
