@@ -186,11 +186,29 @@ class ChannelMethods {
         }
     }
     /**
-     * Edit a message sent by the current user
+     * Crosspost a message in a news channel to all following channels
+     * @param channelId Id of the news channel
+     * @param messageId Id of the message
+     * @returns [discord message](https://discord.com/developers/docs/resources/channel#message-object) object
+     *
+     * | Permissions needed | Condition                                      |
+     * |--------------------|------------------------------------------------|
+     * | SEND_MESSAGES      | if the message was sent by the current user    |
+     * | MANAGE_MESSAGES    | if the message wasn't sent by the current user |
+     */
+    async crosspostMessage(channelId, messageId) {
+        return this.requestHandler.request(Endpoints_1.default.CHANNEL_MESSAGE_CROSSPOST(channelId, messageId), "post", "json");
+    }
+    /**
+     * Edit a message sent by the current user or edit the message flags of another user's message
      * @param channelId Id of the channel
      * @param messageId Id of the message
      * @param data Data to send
      * @returns [discord message](https://discord.com/developers/docs/resources/channel#message-object) object
+     *
+     * | Permissions needed | Condition                                        |
+     * |--------------------|--------------------------------------------------|
+     * | MANAGE_MESSAGES    | When editing someone else's message to set flags |
      *
      * @example
      * // Simple ping response
@@ -210,7 +228,12 @@ class ChannelMethods {
         if (data.content && (options.disableEveryone !== undefined ? options.disableEveryone : this.disableEveryone)) {
             data.content = data.content.replace(/@([^<>@ ]*)/gsmu, replaceEveryone);
         }
-        return this.requestHandler.request(Endpoints_1.default.CHANNEL_MESSAGE(channelId, messageId), "patch", "json", data);
+        if (data.file) {
+            return this.requestHandler.request(Endpoints_1.default.CHANNEL_MESSAGE(channelId, messageId), "patch", "multipart", data);
+        }
+        else {
+            return this.requestHandler.request(Endpoints_1.default.CHANNEL_MESSAGE(channelId, messageId), "patch", "json", data);
+        }
     }
     /**
      * Delete a message

@@ -10,10 +10,11 @@ declare const _default: {
     CHANNEL: (chanID: string) => string;
     CHANNEL_BULK_DELETE: (chanID: string) => string;
     CHANNEL_INVITES: (chanID: string) => string;
+    CHANNEL_MESSAGE: (chanID: string, msgID: string) => string;
+    CHANNEL_MESSAGE_CROSSPOST: (chanID: string, msgID: string) => string;
     CHANNEL_MESSAGE_REACTION: (chanID: string, msgID: string, reaction: string) => string;
     CHANNEL_MESSAGE_REACTION_USER: (chanID: string, msgID: string, reaction: string, userID: string) => string;
     CHANNEL_MESSAGE_REACTIONS: (chanID: string, msgID: string) => string;
-    CHANNEL_MESSAGE: (chanID: string, msgID: string) => string;
     CHANNEL_MESSAGES: (chanID: string) => string;
     CHANNEL_PERMISSION: (chanID: string, overID: string) => string;
     CHANNEL_PERMISSIONS: (chanID: string) => string;
@@ -65,6 +66,8 @@ declare const _default: {
     INTERACTION_CALLBACK: (interactionID: string, token: string) => string;
     INVITE: (inviteID: string) => string;
     OAUTH2_APPLICATION: (appID: string) => string;
+    STAGE_INSTANCE_CHANNEL: (chanID: string) => string;
+    STAGE_INSTANCES: string;
     USER: (userID: string) => string;
     USER_CHANNELS: (userID: string) => string;
     USER_GUILD: (userID: string, guildID: string) => string;

@@ -154,8 +154,8 @@
         "signature": "cdaabe4aee5e177c8c767e73fe680b8035a996e1c9c6a45e5bbca9b9366eb330"
       },
       "../src/endpoints.ts": {
-        "version": "953c9e29be729a866bf4ed425c18a002b56c59cef78ab3f831c692ff1a371080",
-        "signature": "5d3c639dd3644128a1cd5d1133aa4d7743bb182a0cb3a6f17ecb897198d2d8e6"
+        "version": "dd343315f6f45fc5ca4266fbfea9d4d29b528031b827d1dda563c5cb156156a2",
+        "signature": "a0ee48c0979bf9e8fdf7d15840604adf787fd80d78c352d5dccc38161785c2f7"
       },
       "../src/ratelimitbuckets/localbucket.ts": {
         "version": "ad2536a06eb8bf39958575c97946ea35a6c45ba27b71874e57a85f5373001800",
@@ -374,20 +374,20 @@
         "signature": "736097ddbb2903bef918bb3b5811ef1c9c5656f2a73bd39b22a91b9cc2525e50"
       },
       "../package.json": {
-        "version": "4c055f759d070777aec485398a94c96aa9c3e1fdc1d9c7c7e34cef22be3fe09a",
-        "signature": "3da1e0602ad4c4ced3fe1887b4ec1f94bd5f0fc6ae01524262b7deb8dc35eae9"
+        "version": "c1505afc94c6f83d8425fe79faf7184d74578564ff0628cf79e910957ef3cca4",
+        "signature": "85e168ed3ca415653f451bec07c8b82a6b278054792382cc3a685b83444e7dcb"
       },
       "../src/requesthandler.ts": {
         "version": "2658412e08fd718939e13ab7776bab82eac382bf5b75551f8c81545e651b0345",
         "signature": "ee37bab6f28b4662116eb0e013b5caf237f6f1b94cc29f685be975a6f2214c31"
       },
       "../node_modules/@amanda/discordtypings/index.d.ts": {
-        "version": "18562d763a258a0999f1f42b65b20ba13e10f95e89a17b5152d8556c1132ad44",
-        "signature": "18562d763a258a0999f1f42b65b20ba13e10f95e89a17b5152d8556c1132ad44"
+        "version": "e4386e04634abc93ae5acbb3e483922826020e8472dd58f8949b3288dd0c6a07",
+        "signature": "e4386e04634abc93ae5acbb3e483922826020e8472dd58f8949b3288dd0c6a07"
       },
       "../src/methods/channels.ts": {
-        "version": "046870e125cc85d87235ce11366be78960e7302f2c32efde312f331434810ec3",
-        "signature": "4903d1b8b20fa5737c1ea382c7d383c8ef2c34a9f6dfcf51c1b3386a7c9891f6"
+        "version": "0cf9d129c3a3f47e4fa39b54104e74eb4b4500628ee9fa02e344c8bf576c80ee",
+        "signature": "eaca06b41fcb6cfc63c63bda54af14f5c28645237120641f9d042a546b37c829"
       },
       "../src/cache/dewcache.ts": {
         "version": "e1c012ae0cff5a5cf0b45d4d97479a5bcc1107151a4e3fbcb2c28312e1d94101",
@@ -410,8 +410,8 @@
         "signature": "9720c474628f7b6109feadd3d962da82836ef6c45dd02d4a25bda98785e83ebb"
       },
       "../src/methods/guilds.ts": {
-        "version": "8fedeba529d38a447e6beafe857f4003db496c9ef793ac888b30f68e30389043",
-        "signature": "e590754f66b81a1aa0f297a6e52851a68d95b0fa97e6d60f0b5a487f6bfa6621"
+        "version": "bf1c7e1b1f39737b0456b9b07f4758018baa2b03999c225448b910514bd69d47",
+        "signature": "dba2955f04e7491dc3277c5a58c1e114d7811eeacf59fe4b3f5cfaf945c35178"
       },
       "../src/methods/interactions.ts": {
         "version": "5bdfa7339fb5d16f7ec214e0608a66f3d99973bd42b5ab732bf075b3d6545943",
@@ -433,9 +433,13 @@
         "version": "4ed3a2925bc0f6ec96a39b3bb4268a54b161452e2906cdf23786f615f0ab5705",
         "signature": "3ac08c949ceeb0cd1c5a5b325022db2c1a42031e65a3b3ec4038820d2298d2b3"
       },
+      "../src/methods/stageinstance.ts": {
+        "version": "10aa04d93ff2cc4c339dba95d553ad767354ae92fa3580b91cc76ab52f3697af",
+        "signature": "2010b9aed22c9c96e31153203c285fc0d68cd64dddcbd1a68c560bbb2e4aa359"
+      },
       "../src/snowtransfer.ts": {
-        "version": "63dcc472260e2e5b732432615faa908975bcafb961e80e8f67d1fbee195d5c37",
-        "signature": "9d6eee0de1cdd3a83bdded763c0f9ac4e2ca6fd8ddbd1cccd10f0fcd3689ab14"
+        "version": "0f284735c1db6bfd197f55e652f608c65f9eede57d6bce5e3683b48a00f064bc",
+        "signature": "8487fc072ff3135e78675273b5861a9f4f5f837cc0542cc876817f0d1b5285f2"
       }
     },
     "options": {
@@ -739,6 +743,11 @@
         "../src/requesthandler.ts",
         "../node_modules/@amanda/discordtypings/index.d.ts"
       ],
+      "../src/methods/stageinstance.ts": [
+        "../src/endpoints.ts",
+        "../src/requesthandler.ts",
+        "../node_modules/@amanda/discordtypings/index.d.ts"
+      ],
       "../src/snowtransfer.ts": [
         "../src/ratelimiter.ts",
         "../src/requesthandler.ts",
@@ -752,6 +761,7 @@
         "../src/methods/voices.ts",
         "../src/methods/bots.ts",
         "../src/methods/auditlog.ts",
+        "../src/methods/stageinstance.ts",
         "../src/endpoints.ts",
         "../package.json"
       ]
@@ -773,12 +783,17 @@
         "../src/methods/voices.ts",
         "../src/methods/bots.ts",
         "../src/methods/auditlog.ts",
+        "../src/methods/stageinstance.ts",
         "../src/ratelimiter.ts"
       ],
       "../src/requesthandler.ts": [
         "../src/ratelimiter.ts",
         "../node_modules/@types/node/events.d.ts",
         "../node_modules/@types/centra/index.d.ts"
+      ],
+      "../src/methods/stageinstance.ts": [
+        "../src/requesthandler.ts",
+        "../node_modules/@amanda/discordtypings/index.d.ts"
       ],
       "../src/methods/auditlog.ts": [
         "../src/requesthandler.ts",
@@ -1093,6 +1108,7 @@
       "../src/methods/voices.ts",
       "../src/methods/bots.ts",
       "../src/methods/auditlog.ts",
+      "../src/methods/stageinstance.ts",
       "../src/snowtransfer.ts",
       "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2015.d.ts",
       "../../../../appdata/roaming/npm/node_modules/typescript/lib/lib.es2016.d.ts",

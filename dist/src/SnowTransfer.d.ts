@@ -10,6 +10,7 @@ import InviteMethods from "./methods/Invites";
 import VoiceMethods from "./methods/Voices";
 import BotMethods from "./methods/Bots";
 import AuditLogMethods from "./methods/AuditLog";
+import StageInstanceMethods from "./methods/StageInstance";
 declare class SnowTransfer {
     options: {
         baseHost: string;
@@ -33,6 +34,7 @@ declare class SnowTransfer {
     voice: VoiceMethods;
     bot: BotMethods;
     auditLog: AuditLogMethods;
+    stageInstance: StageInstanceMethods;
     ratelimiter: Ratelimiter;
     /**
      * Create a new Rest Client

@@ -30,3 +30,4 @@ export declare const devDependencies: {
     "eslint": string;
     "typescript": string;
 };
+export declare const files: string[];

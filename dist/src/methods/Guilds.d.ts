@@ -79,9 +79,10 @@ declare class GuildMethods {
      * @param data channel properties
      * @returns [channel object](https://discord.com/developers/docs/resources/channel#channel-object-channel-structure)
      *
-     * | Permissions needed | Condition |
-     * |--------------------|-----------|
-     * | MANAGE_CHANNELS    | always    |
+     * | Permissions needed | Condition                                     |
+     * |--------------------|-----------------------------------------------|
+     * | MANAGE_CHANNELS    | always                                        |
+     * | ADMINISTRATOR      | setting MANAGE_ROLES in permission_overwrites |
      */
     createGuildChannel(guildId: string, data: CreateGuildChannelData): Promise<import("@amanda/discordtypings").GuildChannelData>;
     /**

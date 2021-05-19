@@ -14,6 +14,7 @@ const Invites_1 = __importDefault(require("./methods/Invites"));
 const Voices_1 = __importDefault(require("./methods/Voices"));
 const Bots_1 = __importDefault(require("./methods/Bots"));
 const AuditLog_1 = __importDefault(require("./methods/AuditLog"));
+const StageInstance_1 = __importDefault(require("./methods/StageInstance"));
 const Endpoints_1 = __importDefault(require("./Endpoints"));
 const package_json_1 = require("../package.json");
 class SnowTransfer {
@@ -47,6 +48,7 @@ class SnowTransfer {
         this.voice = new Voices_1.default(this.requestHandler);
         this.bot = new Bots_1.default(this.requestHandler);
         this.auditLog = new AuditLog_1.default(this.requestHandler);
+        this.stageInstance = new StageInstance_1.default(this.requestHandler);
     }
 }
 module.exports = SnowTransfer;
