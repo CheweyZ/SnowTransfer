@@ -3,7 +3,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 const Endpoints_1 = __importDefault(require("../Endpoints"));
-const UserCache_1 = __importDefault(require("../cache/UserCache"));
 /**
  * Methods for interacting with users
  */
@@ -18,14 +17,13 @@ class UserMethods {
      */
     constructor(requestHandler) {
         this.requestHandler = requestHandler;
-        this.cache = new UserCache_1.default(this);
     }
     /**
      * Get information about current user
      * @returns [user object](https://discord.com/developers/docs/resources/user#user-object)
      */
     async getSelf() {
-        return this.cache.wrap("@me", this.requestHandler.request(Endpoints_1.default.USER("@me"), "get", "json"));
+        return this.requestHandler.request(Endpoints_1.default.USER("@me"), "get", "json");
     }
     /**
      * Get information about a user via Id
@@ -33,7 +31,7 @@ class UserMethods {
      * @returns [user object](https://discord.com/developers/docs/resources/user#user-object)
      */
     async getUser(userId) {
-        return this.cache.wrap(userId, this.requestHandler.request(Endpoints_1.default.USER(userId), "get", "json"));
+        return this.requestHandler.request(Endpoints_1.default.USER(userId), "get", "json");
     }
     /**
      * Update the current user
@@ -49,7 +47,7 @@ class UserMethods {
      * client.user.updateSelf(updateData)
      */
     async updateSelf(data) {
-        return this.cache.wrap("@me", this.requestHandler.request(Endpoints_1.default.USER("@me"), "patch", "json", data));
+        return this.requestHandler.request(Endpoints_1.default.USER("@me"), "patch", "json", data);
     }
     /**
      * Get guilds of the current user

@@ -1,6 +1,6 @@
 /// <reference types="node" />
 /**
- * Methods for handling webhook interactiong
+ * Methods for handling webhook interactions
  */
 declare class WebhookMethods {
     requestHandler: import("../RequestHandler");
@@ -224,18 +224,18 @@ interface WebhookCreateMessageData {
      */
     tts?: boolean | null;
     /**
-     * File that should be uploaded
+     * Files that should be uploaded
      */
-    file?: {
+    files?: Array<{
         /**
          * Name of the file
          */
-        name?: string;
+        name: string;
         /**
          * Buffer with file contents
          */
         file: Buffer;
-    };
+    }>;
     /**
      * Array of [embed objects](https://discord.com/developers/docs/resources/channel#embed-object)
      */
@@ -244,6 +244,10 @@ interface WebhookCreateMessageData {
      * [alowed mentions object](https://discord.com/developers/docs/resources/channel#allowed-mentions-object)
      */
     allowed_mentions?: import("@amanda/discordtypings").AllowedMentionsData;
+    /**
+     * [Buttons](https://discord.com/developers/docs/interactions/message-components#component-object) to add to the message
+     */
+    components?: Array<import("@amanda/discordtypings").MessageComponentData>;
 }
 interface WebhookEditMessageData {
     /**
@@ -254,20 +258,27 @@ interface WebhookEditMessageData {
      * Array of [embed objects](https://discord.com/developers/docs/resources/channel#embed-object)
      */
     embeds?: Array<import("@amanda/discordtypings").EmbedData> | null;
-    file?: {
+    /**
+     * Files that should be updated
+     */
+    files?: Array<{
         /**
          * Name of the file
          */
-        name?: string;
+        name: string;
         /**
          * Buffer with file contents
          */
         file: Buffer;
-    } | null;
+    }>;
     /**
      * [alowed mentions object](https://discord.com/developers/docs/resources/channel#allowed-mentions-object)
      */
     allowed_mentions?: import("@amanda/discordtypings").AllowedMentionsData | null;
     attachments?: Array<import("@amanda/discordtypings").AttachmentData> | null;
+    /**
+     * [Buttons](https://discord.com/developers/docs/interactions/message-components#component-object) to add to the message
+     */
+    components?: Array<import("@amanda/discordtypings").MessageComponentData>;
 }
 export = WebhookMethods;

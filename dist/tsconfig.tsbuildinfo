@@ -154,8 +154,8 @@
         "signature": "cdaabe4aee5e177c8c767e73fe680b8035a996e1c9c6a45e5bbca9b9366eb330"
       },
       "../src/endpoints.ts": {
-        "version": "dd343315f6f45fc5ca4266fbfea9d4d29b528031b827d1dda563c5cb156156a2",
-        "signature": "a0ee48c0979bf9e8fdf7d15840604adf787fd80d78c352d5dccc38161785c2f7"
+        "version": "3bdd72ef1f737660a38793ab4d4d01ee23b7ca8d419cd09a53f26fa54c94667e",
+        "signature": "4ac34d545b0087ca784c60396f9fd8ec24190a4bdc9c22a091d3881f6078f375"
       },
       "../src/ratelimitbuckets/localbucket.ts": {
         "version": "ad2536a06eb8bf39958575c97946ea35a6c45ba27b71874e57a85f5373001800",
@@ -374,44 +374,40 @@
         "signature": "736097ddbb2903bef918bb3b5811ef1c9c5656f2a73bd39b22a91b9cc2525e50"
       },
       "../package.json": {
-        "version": "e21e179c8e74078c70d9dd22cddfb8a97b221456592d020fb924f74d3e9cc997",
+        "version": "dcfb6a0e1d809942eaf2b1a91908fc716355ae393f9c2b24c489b0579f5c807d",
         "signature": "85e168ed3ca415653f451bec07c8b82a6b278054792382cc3a685b83444e7dcb"
       },
       "../src/requesthandler.ts": {
-        "version": "2658412e08fd718939e13ab7776bab82eac382bf5b75551f8c81545e651b0345",
+        "version": "b8c677312c1c2d842e093d90fd6540ee3e7f2e0e4ab86bb2b173b2e0103a48ef",
         "signature": "ee37bab6f28b4662116eb0e013b5caf237f6f1b94cc29f685be975a6f2214c31"
       },
       "../node_modules/@amanda/discordtypings/index.d.ts": {
-        "version": "fd5d4cd003b64edee3bb41a80d8e0506154e7625ef8599bb8a724be0a88a5c28",
-        "signature": "fd5d4cd003b64edee3bb41a80d8e0506154e7625ef8599bb8a724be0a88a5c28"
+        "version": "f9b859abfadbd075b9cb9d0a168455157450eba30f6452076eeb390fe889f417",
+        "signature": "f9b859abfadbd075b9cb9d0a168455157450eba30f6452076eeb390fe889f417"
       },
       "../src/methods/channels.ts": {
-        "version": "5f990ef2fe097b271970c8b3be32c3cb7b71af7165f4fcab3d5927d184f843f0",
-        "signature": "bedf3983246492e5629904b0f5308dcf2051d4e4190ab4c5196c582b795b87ef"
-      },
-      "../src/cache/dewcache.ts": {
-        "version": "e1c012ae0cff5a5cf0b45d4d97479a5bcc1107151a4e3fbcb2c28312e1d94101",
-        "signature": "eea7af1d31ca3532ed3d1797e69f44622b4bc3efd76f151fa3bf1a5d650ee4b3"
-      },
-      "../src/cache/usercache.ts": {
-        "version": "322cc6a75123ce6169d18184b98965a8dec519623ac038ff1c061365ec8c9d6d",
-        "signature": "2b7bcad9311976693ed56c22fde3bcc8d4b409ead15c561508427817d284c291"
+        "version": "0925a2d1877fe57dce88192725aea2a5641293626cb81face3eb267dcf977d08",
+        "signature": "3f768a929ed227118e76140cd070b576479ec70a340349e672f70db5df67b855"
       },
       "../src/methods/users.ts": {
-        "version": "2a1039c69d3f448089917d4316d476894e7634a73544736be9115e0ab330d0b0",
-        "signature": "8d7a659c7d1358de83b683b2cece4b1431dd6ad416b99afa340167965510995f"
+        "version": "33042e8e9d0f26c8f92ef884c99f39c0454c6151cadcd1815c8534e9c918efd5",
+        "signature": "4857850b5c0e7c77703a3c7c6c0eb91f24a101a8d7af863bcaad89dc6c69887a"
       },
       "../src/methods/emojis.ts": {
         "version": "e4860ff3cce4594d6534e636a27941b4497a5f9e636be1855441f6765d0413fb",
         "signature": "e5e267a22323c009b7894f50b1434d9cf93cb8f4096a0fa639ea4d3b5b42c6d9"
       },
       "../src/methods/webhooks.ts": {
-        "version": "d851e5f8e90b776df7ab03c2d4352eed326bc18f8eb30e2bcdc32e8b56c1bd84",
-        "signature": "9720c474628f7b6109feadd3d962da82836ef6c45dd02d4a25bda98785e83ebb"
+        "version": "c4dafd0c187b0c82c654a2ad47b3a3a727e7a6cdac8f546d19f87d5cd14f51bd",
+        "signature": "e5c11d08876e450e5056695386ec70f8737736bae044ebc5d85e831ed4fe6757"
       },
       "../src/methods/guilds.ts": {
         "version": "bf1c7e1b1f39737b0456b9b07f4758018baa2b03999c225448b910514bd69d47",
         "signature": "dba2955f04e7491dc3277c5a58c1e114d7811eeacf59fe4b3f5cfaf945c35178"
+      },
+      "../src/methods/guildtemplate.ts": {
+        "version": "3bea0cb35d26b121fb11a43354554ffc64d0ae4da0668adb2926da0f4e53d861",
+        "signature": "c86bd679d84711e5a0b860edbb1cecc48f2670c9a083f122c2c47e556b77cfc2"
       },
       "../src/methods/interactions.ts": {
         "version": "5bdfa7339fb5d16f7ec214e0608a66f3d99973bd42b5ab732bf075b3d6545943",
@@ -430,16 +426,16 @@
         "signature": "6b5b1e01bf4461bdab8c0badbafe4d77eedb536b9702fb721723d163c8e5b759"
       },
       "../src/methods/auditlog.ts": {
-        "version": "4ed3a2925bc0f6ec96a39b3bb4268a54b161452e2906cdf23786f615f0ab5705",
-        "signature": "3ac08c949ceeb0cd1c5a5b325022db2c1a42031e65a3b3ec4038820d2298d2b3"
+        "version": "f3cee322bde7300c5bc918d1bd79ff35593c5eeeb80ffbb2fa95c83774aa96dc",
+        "signature": "ec47b5ff7d9089dc151eb48a2b0f4c6b12fb7348e52a58d6e0a779bd851ef0f8"
       },
       "../src/methods/stageinstance.ts": {
         "version": "10aa04d93ff2cc4c339dba95d553ad767354ae92fa3580b91cc76ab52f3697af",
         "signature": "2010b9aed22c9c96e31153203c285fc0d68cd64dddcbd1a68c560bbb2e4aa359"
       },
       "../src/snowtransfer.ts": {
-        "version": "0f284735c1db6bfd197f55e652f608c65f9eede57d6bce5e3683b48a00f064bc",
-        "signature": "8487fc072ff3135e78675273b5861a9f4f5f837cc0542cc876817f0d1b5285f2"
+        "version": "afb01a55c05782d1fcc23af2b36db5da626dc6dacaf4d7cac4cb9c64aa5af4b0",
+        "signature": "7612b05debe3fecd2f66cd82255b46849372ce731423d179472306360d181914"
       }
     },
     "options": {
@@ -692,14 +688,8 @@
         "../src/requesthandler.ts",
         "../node_modules/@amanda/discordtypings/index.d.ts"
       ],
-      "../src/cache/usercache.ts": [
-        "../src/cache/dewcache.ts",
-        "../src/methods/users.ts",
-        "../node_modules/@amanda/discordtypings/index.d.ts"
-      ],
       "../src/methods/users.ts": [
         "../src/endpoints.ts",
-        "../src/cache/usercache.ts",
         "../src/requesthandler.ts",
         "../node_modules/@amanda/discordtypings/index.d.ts"
       ],
@@ -714,6 +704,11 @@
         "../node_modules/@amanda/discordtypings/index.d.ts"
       ],
       "../src/methods/guilds.ts": [
+        "../src/endpoints.ts",
+        "../src/requesthandler.ts",
+        "../node_modules/@amanda/discordtypings/index.d.ts"
+      ],
+      "../src/methods/guildtemplate.ts": [
         "../src/endpoints.ts",
         "../src/requesthandler.ts",
         "../node_modules/@amanda/discordtypings/index.d.ts"
@@ -756,6 +751,7 @@
         "../src/methods/emojis.ts",
         "../src/methods/webhooks.ts",
         "../src/methods/guilds.ts",
+        "../src/methods/guildtemplate.ts",
         "../src/methods/interactions.ts",
         "../src/methods/invites.ts",
         "../src/methods/voices.ts",
@@ -778,6 +774,7 @@
         "../src/methods/emojis.ts",
         "../src/methods/webhooks.ts",
         "../src/methods/guilds.ts",
+        "../src/methods/guildtemplate.ts",
         "../src/methods/interactions.ts",
         "../src/methods/invites.ts",
         "../src/methods/voices.ts",
@@ -815,6 +812,10 @@
         "../src/methods/webhooks.ts",
         "../node_modules/@amanda/discordtypings/index.d.ts"
       ],
+      "../src/methods/guildtemplate.ts": [
+        "../src/requesthandler.ts",
+        "../node_modules/@amanda/discordtypings/index.d.ts"
+      ],
       "../src/methods/guilds.ts": [
         "../src/requesthandler.ts",
         "../node_modules/@amanda/discordtypings/index.d.ts"
@@ -829,13 +830,7 @@
       ],
       "../src/methods/users.ts": [
         "../src/requesthandler.ts",
-        "../node_modules/@amanda/discordtypings/index.d.ts",
-        "../src/cache/usercache.ts"
-      ],
-      "../src/cache/usercache.ts": [
-        "../src/methods/users.ts",
-        "../node_modules/@amanda/discordtypings/index.d.ts",
-        "../src/cache/dewcache.ts"
+        "../node_modules/@amanda/discordtypings/index.d.ts"
       ],
       "../src/ratelimitbuckets/localbucket.ts": [
         "../src/ratelimiter.ts"
@@ -1097,12 +1092,11 @@
       "../src/requesthandler.ts",
       "../node_modules/@amanda/discordtypings/index.d.ts",
       "../src/methods/channels.ts",
-      "../src/cache/dewcache.ts",
-      "../src/cache/usercache.ts",
       "../src/methods/users.ts",
       "../src/methods/emojis.ts",
       "../src/methods/webhooks.ts",
       "../src/methods/guilds.ts",
+      "../src/methods/guildtemplate.ts",
       "../src/methods/interactions.ts",
       "../src/methods/invites.ts",
       "../src/methods/voices.ts",

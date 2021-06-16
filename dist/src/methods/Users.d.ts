@@ -1,10 +1,8 @@
-import UserCache from "../cache/UserCache";
 /**
  * Methods for interacting with users
  */
 declare class UserMethods {
     requestHandler: import("../RequestHandler");
-    cache: UserCache;
     /**
      * Create a new User Method handler
      *

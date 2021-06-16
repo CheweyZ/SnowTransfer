@@ -4,7 +4,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 const Endpoints_1 = __importDefault(require("../Endpoints"));
 /**
- * Methods for handling webhook interactiong
+ * Methods for handling webhook interactions
  */
 class WebhookMethods {
     /**
@@ -148,8 +148,8 @@ class WebhookMethods {
      */
     async executeWebhook(webhookId, token, data, options = { wait: false, disableEveryone: this.disableEveryone }) {
         var _a, _b, _c, _d, _e, _f;
-        if (typeof data !== "string" && !((_a = data) === null || _a === void 0 ? void 0 : _a.content) && !((_b = data) === null || _b === void 0 ? void 0 : _b.embeds) && !((_c = data) === null || _c === void 0 ? void 0 : _c.file)) {
-            throw new Error("Missing content or embeds");
+        if (typeof data !== "string" && !((_a = data) === null || _a === void 0 ? void 0 : _a.content) && !((_b = data) === null || _b === void 0 ? void 0 : _b.embeds) && !((_c = data) === null || _c === void 0 ? void 0 : _c.files)) {
+            throw new Error("Missing content or embeds or files");
         }
         if (typeof data === "string") {
             data = { content: data };
@@ -158,7 +158,7 @@ class WebhookMethods {
         if (data.content && (((_d = options) === null || _d === void 0 ? void 0 : _d.disableEveryone) !== undefined ? options.disableEveryone : this.disableEveryone)) {
             data.content = data.content.replace(/@([^<>@ ]*)/gsmu, replaceEveryone);
         }
-        if (data.file)
+        if (data.files)
             return this.requestHandler.request(Endpoints_1.default.WEBHOOK_TOKEN(webhookId, token) + ((_e = options) === null || _e === void 0 ? void 0 : _e.wait) ? "?wait=true" : "", "post", "multipart", data);
         else
             return this.requestHandler.request(Endpoints_1.default.WEBHOOK_TOKEN(webhookId, token) + ((_f = options) === null || _f === void 0 ? void 0 : _f.wait) ? "?wait=true" : "", "post", "json", data);
@@ -210,7 +210,7 @@ class WebhookMethods {
      * @returns [discord message](https://discord.com/developers/docs/resources/channel#message-object) object
      */
     async editWebhookMessage(webhookId, token, messageId, data) {
-        if (data.file)
+        if (data.files)
             return this.requestHandler.request(Endpoints_1.default.WEBHOOK_TOKEN_MESSAGE(webhookId, token, messageId), "patch", "multipart", data);
         else
             return this.requestHandler.request(Endpoints_1.default.WEBHOOK_TOKEN_MESSAGE(webhookId, token, messageId), "patch", "json", data);

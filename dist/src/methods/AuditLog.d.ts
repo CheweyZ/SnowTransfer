@@ -1,3 +1,6 @@
+/**
+ * Methods for interacting with Guild Audit Logs
+ */
 declare class AuditLogMethods {
     requestHandler: import("../RequestHandler");
     /**

@@ -3,6 +3,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 const Endpoints_1 = __importDefault(require("../Endpoints"));
+/**
+ * Methods for interacting with Guild Audit Logs
+ */
 class AuditLogMethods {
     /**
      * Create a new Audit Log Method Handler

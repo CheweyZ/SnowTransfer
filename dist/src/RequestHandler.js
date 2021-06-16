@@ -218,14 +218,16 @@ class RequestHandler extends events_1.EventEmitter {
         if (amount >= 3)
             throw new Error("Max amount of rety attempts reached");
         const form = new form_data_1.default();
-        if (data.file && data.file.file) {
-            form.append("file", data.file.file, { filename: data.file.name });
-            delete data.file.file;
+        if (data.files && Array.isArray(data.files) && data.files.every(f => !!f.name && !!f.file)) {
+            for (const file of data.files) {
+                form.append(file.name, file.file, file.name);
+                delete file.file;
+            }
         }
         form.append("payload_json", JSON.stringify(data));
         // duplicate headers in options as to not risk mutating the state.
         const newHeaders = Object.assign({}, this.options.headers, form.getHeaders());
-        return centra_1.default(this.apiURL, method).path(endpoint).header(newHeaders).body(form.getBuffer()).send();
+        return centra_1.default(this.apiURL, method).path(endpoint).header(newHeaders).body(form.getBuffer()).timeout(15000).send();
     }
 }
 RequestHandler.DiscordAPIErrror = DiscordAPIError;

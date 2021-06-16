@@ -54,6 +54,8 @@ declare const _default: {
     GUILD_PRUNE: (guildID: string) => string;
     GUILD_ROLE: (guildID: string, roleID: string) => string;
     GUILD_ROLES: (guildID: string) => string;
+    GUILD_TEMPLATE: (guildID: string, code: string) => string;
+    GUILD_TEMPLATES: (guildID: string) => string;
     GUILD_VANITY: (guildID: string) => string;
     GUILD_VOICE_REGIONS: (guildID: string) => string;
     GUILD_VOICE_STATE_USER: (guildID: string, memberID: string) => string;
@@ -68,6 +70,7 @@ declare const _default: {
     OAUTH2_APPLICATION: (appID: string) => string;
     STAGE_INSTANCE_CHANNEL: (chanID: string) => string;
     STAGE_INSTANCES: string;
+    TEMPLATE: (code: string) => string;
     USER: (userID: string) => string;
     USER_CHANNELS: (userID: string) => string;
     USER_GUILD: (userID: string, guildID: string) => string;

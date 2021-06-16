@@ -5,6 +5,7 @@ import UserMethods from "./methods/Users";
 import EmojiMethods from "./methods/Emojis";
 import WebhookMethods from "./methods/Webhooks";
 import GuildMethods from "./methods/Guilds";
+import GuildTemplateMethods from "./methods/GuildTemplate";
 import InteractionMethods from "./methods/Interactions";
 import InviteMethods from "./methods/Invites";
 import VoiceMethods from "./methods/Voices";
@@ -29,6 +30,7 @@ declare class SnowTransfer {
     emoji: EmojiMethods;
     webhook: WebhookMethods;
     guild: GuildMethods;
+    guildTemplate: GuildTemplateMethods;
     interaction: InteractionMethods;
     invite: InviteMethods;
     voice: VoiceMethods;

@@ -9,6 +9,7 @@ const Users_1 = __importDefault(require("./methods/Users"));
 const Emojis_1 = __importDefault(require("./methods/Emojis"));
 const Webhooks_1 = __importDefault(require("./methods/Webhooks"));
 const Guilds_1 = __importDefault(require("./methods/Guilds"));
+const GuildTemplate_1 = __importDefault(require("./methods/GuildTemplate"));
 const Interactions_1 = __importDefault(require("./methods/Interactions"));
 const Invites_1 = __importDefault(require("./methods/Invites"));
 const Voices_1 = __importDefault(require("./methods/Voices"));
@@ -43,6 +44,7 @@ class SnowTransfer {
         this.emoji = new Emojis_1.default(this.requestHandler);
         this.webhook = new Webhooks_1.default(this.requestHandler, this.options.disableEveryone);
         this.guild = new Guilds_1.default(this.requestHandler);
+        this.guildTemplate = new GuildTemplate_1.default(this.requestHandler);
         this.interaction = new Interactions_1.default(this.requestHandler, this.webhook);
         this.invite = new Invites_1.default(this.requestHandler);
         this.voice = new Voices_1.default(this.requestHandler);

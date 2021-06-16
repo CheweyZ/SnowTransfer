@@ -134,7 +134,7 @@ declare class ChannelMethods {
      * let client = new SnowTransfer('TOKEN')
      * // fileData will be a buffer with the data of the png image.
      * let fileData = fs.readFileSync('nice_picture.png') // You should probably use fs.readFile, since it's asynchronous, synchronous methods may lag your bot.
-     * client.channel.createMessage('channel id', {content: 'This is a nice picture', file: {name: 'Optional Filename.png', file: fileData}})
+     * client.channel.createMessage('channel id', {content: 'This is a nice picture', files: [{name: 'Optional Filename.png', file: fileData}]})
      */
     createMessage(channelId: string, data: string | CreateMessageData, options?: {
         disableEveryone?: boolean;
@@ -575,9 +575,9 @@ interface GetMessageOptions {
 }
 interface CreateMessageData {
     /**
-     * [Embed](https://discord.com/developers/docs/resources/channel#embed-object) to send
+     * Array of [Embeds](https://discord.com/developers/docs/resources/channel#embed-object) to send
      */
-    embed?: import("@amanda/discordtypings").EmbedData;
+    embeds?: Array<import("@amanda/discordtypings").EmbedData>;
     /**
      * Content of the message
      */
@@ -591,18 +591,18 @@ interface CreateMessageData {
      */
     tts?: boolean | null;
     /**
-     * File that should be uploaded
+     * Files that should be uploaded
      */
-    file?: {
+    files?: Array<{
         /**
          * Name of the file
          */
-        name?: string;
+        name: string;
         /**
          * Buffer with file contents
          */
         file: Buffer;
-    };
+    }>;
     /**
      * [Allowed mentions](https://discord.com/developers/docs/resources/channel#allowed-mentions-object) for the message
      */
@@ -632,26 +632,26 @@ interface EditMessageData {
      */
     content?: string | null;
     /**
-     * [Embed](https://discord.com/developers/docs/resources/channel#embed-object) to send
+     * Array of [Embeds](https://discord.com/developers/docs/resources/channel#embed-object) to send
      */
-    embed?: import("@amanda/discordtypings").EmbedData;
+    embeds?: Array<import("@amanda/discordtypings").EmbedData>;
     /**
      * 1 << 2 to set a message SUPPRESS_EMBEDS
      */
     flags?: number;
     /**
-     * File that should be updated
+     * Files that should be updated
      */
-    file?: {
+    files?: Array<{
         /**
          * Name of the file
          */
-        name?: string;
+        name: string;
         /**
          * Buffer with file contents
          */
         file: Buffer;
-    };
+    }>;
     /**
      * [Allowed mentions](https://discord.com/developers/docs/resources/channel#allowed-mentions-object) for the message
      */
