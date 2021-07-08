@@ -17,7 +17,7 @@ const Bots_1 = __importDefault(require("./methods/Bots"));
 const AuditLog_1 = __importDefault(require("./methods/AuditLog"));
 const StageInstance_1 = __importDefault(require("./methods/StageInstance"));
 const Endpoints_1 = __importDefault(require("./Endpoints"));
-const package_json_1 = require("../package.json");
+const { version } = require("../package.json");
 class SnowTransfer {
     /**
      * Create a new Rest Client
@@ -31,7 +31,7 @@ class SnowTransfer {
         if (!token.startsWith("Bot")) {
             token = `Bot ${token}`;
         }
-        this.options = { baseHost: Endpoints_1.default.BASE_HOST, disableEveryone: false, sentryOptions: { extra: { snowtransferVersion: package_json_1.version } }, useRedis: false };
+        this.options = { baseHost: Endpoints_1.default.BASE_HOST, disableEveryone: false, sentryOptions: { extra: { snowtransferVersion: version } }, useRedis: false };
         this.token = token;
         Object.assign(this.options, options);
         this.ratelimiter = new Ratelimiter_1.default();

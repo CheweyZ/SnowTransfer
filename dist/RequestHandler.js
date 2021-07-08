@@ -9,7 +9,7 @@ const crypto_1 = __importDefault(require("crypto"));
 const centra_1 = __importDefault(require("centra"));
 const Endpoints_1 = __importDefault(require("./Endpoints"));
 const form_data_1 = __importDefault(require("form-data"));
-const package_json_1 = require("../package.json");
+const { version } = require("../package.json");
 const Constants_1 = __importDefault(require("./Constants"));
 class DiscordAPIError extends Error {
     constructor(path, error, method, status) {
@@ -61,7 +61,7 @@ class RequestHandler extends events_1.EventEmitter {
             baseURL: Endpoints_1.default.BASE_URL,
             headers: {
                 Authorization: options.token,
-                "User-Agent": `DiscordBot (https://github.com/DasWolke/SnowTransfer, ${package_json_1.version})`
+                "User-Agent": `DiscordBot (https://github.com/DasWolke/SnowTransfer, ${version})`
             }
         };
         Object.assign(this.options, options);
@@ -80,6 +80,7 @@ class RequestHandler extends events_1.EventEmitter {
     request(endpoint, method, dataType = "json", data = {}, amount = 0) {
         if (typeof data === "number")
             data = String(data);
+        const stack = new Error().stack;
         return new Promise(async (res, rej) => {
             this.ratelimiter.queue(async (bkt) => {
                 const reqID = crypto_1.default.randomBytes(20).toString("hex");
@@ -94,11 +95,16 @@ class RequestHandler extends events_1.EventEmitter {
                         request = await this._multiPartRequest(endpoint, method, data, amount);
                     }
                     else {
-                        throw new Error("Forbidden dataType. Use json or multipart");
+                        const e = new Error("Forbidden dataType. Use json or multipart");
+                        e.stack = stack;
+                        throw e;
                     }
                     // 429 and 502 are recoverable and will be re-tried automatically with 3 attempts max.
-                    if (request.statusCode && !Constants_1.default.OK_STATUS_CODES.includes(request.statusCode) && ![429, 502].includes(request.statusCode))
-                        throw new DiscordAPIError(endpoint, request.headers["content-type"] === "application/json" ? await request.json() : request.body, method, request.statusCode);
+                    if (request.statusCode && !Constants_1.default.OK_STATUS_CODES.includes(request.statusCode) && ![429, 502].includes(request.statusCode)) {
+                        const e = new DiscordAPIError(endpoint, request.headers["content-type"] === "application/json" ? await request.json() : request.body, method, request.statusCode);
+                        e.stack = stack;
+                        throw e;
+                    }
                     if (request.headers["date"]) {
                         this.latency = Date.now() - latency;
                         const offsetDate = this._getOffsetDateFromHeader(request.headers["date"]);
@@ -126,6 +132,8 @@ class RequestHandler extends events_1.EventEmitter {
                     }
                 }
                 catch (error) {
+                    if (error && error.stack)
+                        error.stack = stack;
                     this.emit("requestError", reqID, error);
                     return rej(error);
                 }
